@@ -923,3 +923,24 @@ valor pertencente a Bob iguale ou ultrapasse o valor pertencente a Alan.
 
         printf("A media eh %lf\n", sum/10.0);
     }*/
+
+    /*39) Faça um programa que receba dois números A e B e calcule a soma dos números pares desse
+intervalo de números, incluindo os números digitados.*/
+
+    int main(void)
+    {
+        int a, b, sum = 0;
+
+        printf("Digite um intervalo de numeros inteiros: ");
+        scanf("%d %d", &a, &b);
+
+        for (int i = a; i <= b; i++)
+        {
+            if (i%2 == 0)
+            {
+                sum += i;
+            }
+        }
+
+        printf("A soma dos pares desse intervalo eh %d\n", sum);
+    }
