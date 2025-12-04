@@ -1508,6 +1508,107 @@ e a preencha com os maiores elementos de M1 e M2 na posição correspondente.
         }
     }*/
 
-    /*57) Construa um programa que calcule o determinante de uma matriz 3 x 3.*/
+    /*57) Construa um programa que calcule o determinante de uma matriz 3 x 3.
 
+    //MÉTODO DE LAPLACE
 
+    int main(void)
+    {
+        int m[3][3], a = 0, det = 0;
+
+        printf("Digite uma matriz 3x3:\n");
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                scanf("%d", &m[i][j]);
+            }
+        }
+
+        while (a < 3)
+        {
+            int m1[2][2], l = 0, c = 0, temp = 1, temp1 = 1, det1;
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (i != 0 && j != a)
+                    {
+                        m1[l][c] = m[i][j];
+
+                        c++;
+                        if (c == 2)
+                        {
+                            c = 0;
+                            l++;
+
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    if (i == j)
+                    {
+                        temp *= m1[i][j];
+                    } else
+                    {
+                        temp1 *= m1[i][j];
+
+                    }
+                }
+            }
+
+            det1 = temp - temp1;
+
+            if (a == 1)
+            {
+                det1 = -det1;
+            }
+
+            det += m[0][a]*det1;
+
+            
+
+            a++;
+
+        }
+
+        printf("O determinante da matriz eh %d\n", det);
+    }*/
+
+    /*58) Leia uma matriz 10 x 3 com as notas de 10 alunos em 3 provas. Crie um vetor que armazene a nota
+final de cada aluno, calculada a partir da média aritmética das notas das 3 provas. Imprima o vetor
+resultante.
+
+    int main(void)
+    {
+        double m[10][3], med[10];
+
+        for (int i = 0; i < 10; i++)
+            med[i] = 0;
+
+        printf("Digite as 3 notas dos respectivos alunos:\n");
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                scanf("%lf", &m[i][j]);
+                med[i] += m[i][j];  
+            }
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            med[i] = med[i]/3.0;
+            printf("A media do aluno %d: %.2lf\n", i+1, med[i]);
+        }
+    }*/
+
+    /**/
