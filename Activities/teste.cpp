@@ -925,7 +925,7 @@ valor pertencente a Bob iguale ou ultrapasse o valor pertencente a Alan.
     }*/
 
     /*39) Faça um programa que receba dois números A e B e calcule a soma dos números pares desse
-intervalo de números, incluindo os números digitados.*/
+intervalo de números, incluindo os números digitados.
 
     int main(void)
     {
@@ -943,4 +943,571 @@ intervalo de números, incluindo os números digitados.*/
         }
 
         printf("A soma dos pares desse intervalo eh %d\n", sum);
-    }
+    }*/
+
+    /*40) Adapte o programa do exercício 30 para aceitar múltiplos pedidos de uma vez e calcular o valor total.
+
+    int main(void)
+    {
+        int cod,qnt, cntp = 1;
+        double valor, total = 0;
+
+
+        while (cntp)
+        {
+            printf("Digite o cod do produto e a quantidade desejada: ");
+            scanf("%d %d", &cod, &qnt);
+
+            switch (cod)
+            {
+                case 100:
+                    valor = 1.2;
+                    break;
+                case 101:
+                    valor = 1.3;
+                    break;
+                case 102:
+                    valor = 1.5;
+                    break;
+                case 103:
+                    valor = 1.2;
+                    break;
+                case 104:
+                    valor = 1.7;
+                    break;
+                case 105:
+                    valor = 2.2;
+                    break;
+                case 106:
+                    valor = 1;
+                    break;
+                
+                default:
+                    printf("Codigo invalido\n");
+                    break;
+            }
+
+            total += (qnt*valor);
+
+            printf("Continuar pedido? (1-Sim 0-Nao): ");
+            scanf("%d", &cntp);
+        }
+
+        printf("Total = R$ %.2lf\n", total);
+    }*/
+
+    /*Exercicio extra: monte um triangulo de '*' apartir de loops de repetiçao
+
+    int main(void)
+    {
+        int a;
+
+        printf("Digite a base do triangulo: ");
+        scanf("%d", &a);
+
+        for (int i = 0; i < a; i++)
+        {
+            for(int j = 0; j < a; j++)
+            {
+                if (i + j + 1 >= a)
+                {
+                    printf("%c", '*');
+                }
+                else
+                {
+
+                    printf("%c", ' ');
+                }
+
+
+                
+                
+            }
+
+            printf("  ");
+
+            for (int j = 0; j < a; j++)
+            {
+                if (i >= j)
+                {
+                    printf("%c", '*');
+                }
+            }
+
+            printf("\n");
+            
+        }
+    }*/
+
+    /*41) Escreva um programa que leia 5 números inteiros e os armazene em um vetor. Imprima o vetor, o
+maior elemento e a posição que ele se encontra.
+
+    int main(void)
+    {
+        int v[5], maior, pos;
+
+        for(int i = 0; i < 5; i++)
+        {
+            printf("Digite um numero: ");
+            scanf("%d", &v[i]);
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            maior = v[0];
+
+            if (maior < v[i])
+            {
+                maior = v[i];
+                pos = i;
+            }
+
+            printf("v[%d] = %d\n", i, v[i]);
+        }
+
+        printf("O maior numero eh %d e sua posicao eh %do\n", maior, pos+1);
+    }*/
+
+    /*42) Crie um programa que leia 5 valores inteiros e, em seguida, mostre na tela os valores lidos na ordem
+inversa.
+
+    int main(void)
+    {
+        int v[6], inv = 5, temp;
+
+        for(int i = 0; i < 6; i++)
+        {
+            printf("Digite um numero: ");
+            scanf("%d", &v[i]);
+
+        }
+
+        for(int i = 0; i < 6; i++)
+        {
+            
+            if (i <= 2)
+            {
+                temp = v[i];
+                v[i] = v[inv];
+            }
+            v[inv] = temp;
+            
+
+            printf("%d\n", v[i]);
+
+            inv--;
+
+        }
+    }*/
+
+    /*43) Escreva um programa para ler 5 valores, e, em seguida, mostrar todos os valores lidos juntamente com
+o maior, o menor e a média dos valores.
+
+    int main(void)
+    {
+        int v[5],M, m, soma = 0;
+
+        for(int i = 0; i < 5; i++)
+        {
+            printf("Digite um numero: ");
+            scanf("%d", &v[i]);
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            soma += v[i];
+
+            M = v[0];
+            m = v[0];
+
+            if (M < v[i])
+            {
+                M = v[i];
+            }
+
+            if (m > v[i])
+            {
+                m = v[i];
+            }
+
+            printf("v[%d] = %d\n", i, v[i]);
+        }
+
+        printf("O menor valor eh %d\nO maior valor eh %d\nA media = %.2lf\n", m, M, soma/5.0);
+    }*/
+
+    /*44) Declare um vetor de 100 posições. Aos elementos de índice par, atribua o valor 0. Aos elementos de
+índice ímpar, atribua o valor 1. Imprima o vetor resultante.
+
+    int main(void)
+    {
+        int v[100];
+
+        for (int i = 0; i < 100; i++)
+        {
+            if (i % 2 == 0)
+            {
+                v[i] = 0;
+            } 
+            else
+            {
+                v[i] = 1;
+            }
+
+            printf("v[%d] = %d\n", i, v[i]);
+        }
+
+    }*/
+
+    /*45) Faça um programa que receba do usuário dois vetores, A e B, com 10 números reais cada. Crie um
+novo vetor denominado C calculando C = A - B. Mostre na tela os dados do vetor C.
+
+    int main(void)
+    {
+        int A[10], B[10], C[10];
+
+        for (int i = 0; i < 10; i++)
+        {
+            printf("Digite dois numeros inteiros: ");
+            scanf("%d %d", &A[i], &B[i]);
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            C[i] = A[i] - B[i];
+
+            printf("C[%d] = %d\n", i, C[i]);
+        }
+    }*/
+
+    /*46) Ler dois vetores, x e y, de 5 números reais e calcule o produto escalar entre eles. O produto escalar é
+dado por: x1 * y1 + x2 * y2 + ... + x5 * y5. No final, imprima o resultado.
+
+    int main(void)
+    {
+        int A[5], B[5], C[5], soma;
+
+        for (int i = 0; i < 5; i++)
+        {
+            printf("Digite dois numeros inteiros: ");
+            scanf("%d %d", &A[i], &B[i]);
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            C[i] = A[i] * B[i];
+
+            soma += C[i];
+
+            printf("C[%d] = %d\n", i, C[i]);
+        }
+
+        printf("O produto escalar de x e y eh %d\n", soma);
+    }*/
+
+    /* Escreva um programa que calcule o desvio padrão de um vetor v contendo n = 10 números reais.
+Sendo m a media do vetor, a fórmula do desvio padrão é:
+
+    int main(void)
+    {
+        double v[10], soma = 0;
+
+        for (int i = 0; i < 10; i++)
+        {
+            printf("Digite um numero real: ");
+            scanf("%lf", &v[i]);
+
+            soma += v[i];
+        }
+
+        double m = soma/10;
+
+        soma = 0; 
+
+        for (int i = 0; i < 10; i++)
+        {
+            soma += pow((v[i] - m), 2);
+        }
+
+        double var = soma/10;
+
+        printf("A variancia = %lf\nO desvio padra = %lf\n", var, pow(var,0.5));
+    }*/
+
+    /*48) Leia um vetor de tamanho definido pelo usuário. Conte e imprima quantos valores pares ele possui.
+
+    int main(void)
+    {
+        int t;
+        
+        printf("Digite o tamanho da sua lista: ");
+        scanf("%d", &t);
+
+        int v[t], cont = 0;
+
+        for (int i = 0; i < t; i++)
+        {
+            printf("Digite um numero: ");
+            scanf("%d", &v[i]);
+
+            if (v[i] % 2 == 0)
+            {
+                cont++;
+            }
+        }
+
+        printf("O numero de pares digitados sao %d\n", cont);
+    }*/
+
+    /*49) Crie um vetor com 5 números de ponto flutuante, ordene os elementos deste vetor em ordem
+crescente e, no final, imprima o vetor ordenado.
+
+    int main(void)
+    {
+        double v[5], r[5];
+
+        for(int i = 0; i < 5; i++)
+        {
+            printf("Digite um numero real: ");
+            scanf("%lf", &v[i]);
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            int cont = 0;
+
+            for (int j = 0; j < 5; j++)
+            {
+                if (v[i] < v[j])
+                {
+                    cont++;
+                }
+            }
+
+            r[4 - cont] = v[i];
+
+            
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            printf("%lf\n", r[i]);
+        }
+    }*/
+
+    /*50) Faça um programa que crie e imprima uma matriz identidade 4x4
+
+    int main(void)
+    {
+        int m[4][4];
+
+        for(int i = 0; i < 4; i++)
+        {
+            for(int j = 0; j < 4; j++)
+            {
+                if (i == j)
+                {
+                    m[i][j] = 1;
+                }
+                else 
+                {
+                    m[i][j] = 0;
+                }
+            }
+        }
+
+        for(int i = 0; i < 4; i++)
+        {
+            for(int j = 0; j < 4; j++)
+            {
+                printf("%d%c", m[i][j], (j == 3) ? '\n' : ' ');
+            }
+        }
+    }*/
+
+    /*51) Leia uma matriz 5x5. Multiplique cada elemento por 2. Imprima a soma dos elementos da matriz
+resultante.
+
+    int main(void)
+    {
+        int m[5][5], soma = 0;
+
+        printf("Digite uma matriz 5x5:\n");
+
+        for (int i = 0; i < 5; i++)
+        {
+            for(int j = 0; j < 5; j++)
+            {
+                scanf("%d", &m[i][j]);
+                m[i][j] *= 2;
+                soma += m[i][j];
+            }
+        }
+
+        printf("A soma do dobro dos elementos da matriz eh %d\n", soma);
+    }*/
+
+    /*52) Leia uma matriz 4x4, calcule e imprima a soma dos elementos da diagonal principal.
+
+    int main(void)
+    {
+        int m[4][4], soma = 0;
+
+        printf("Digite uma matriz 4x4:\n");
+
+        for(int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                scanf("%d", &m[i][j]);
+
+                if (i == j)
+                {
+                    soma += m[i][j];
+                }
+            }
+        }
+
+        printf("A soma da diagonal principal dessa matriz eh %d\n", soma);  
+    }*/
+
+    /*53) Leia uma matriz 2x2. Multiplique cada elemento pelo índice da sua linha e pelo índice da sua coluna.
+Imprima a matriz resultante.
+
+    int main(void)
+    {
+        int m[2][2];
+
+        printf("Digite uma matriz 2x2:\n");
+
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                scanf("%d", &m[i][j]);
+                m[i][j] = m[i][j]*i*j;
+
+               
+            }
+        }
+
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                
+                printf("%d%c", m[i][j], (j == 1) ? '\n' : ' ');
+
+               
+            }
+        }
+    }*/
+
+    /*54) Leia uma matriz 3x3, imprima-a matriz e retorne a localização (linha e a coluna) do menor valor
+
+
+    int main(void)
+    {
+        int m[3][3], menor, l, c, oc = 1;
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                scanf("%d", &m[i][j]);
+                
+                if (oc)
+                    menor = m[0][0];
+
+                if (menor > m[i][j])
+                {
+                    menor = m[i][j];
+                    l = i;
+                    c = j;
+                }
+
+                oc = 0;
+
+            }
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf("%d%c", m[i][j], (j == 2) ? '\n' : ' ');
+
+            }
+        }
+
+        printf("O menor valor da matriz eh %d e se encontra na linha %d e coluna %d\n",menor, l,c);
+    }*/
+
+    /*55) Leia uma matriz 4x4, conte e escreva quantos valores maiores que 5 ela possui.
+
+    int main(void)
+    {
+        int m[4][4], cont = 0;
+
+        printf("Digite uma matriz 4x4:\n");
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                scanf("%d", &m[i][j]);
+                if (m[i][j] > 5)
+                {
+                    cont++;
+                }
+            }
+        }
+
+        printf("Os numeros da matriz maiores que 5 eh %d\n", cont);
+    }*/
+
+    /*56) Leia duas matrizes, M1 e M2, de dimensões 3 x 3. Crie uma nova matriz M3, também de dimensão 3x3
+e a preencha com os maiores elementos de M1 e M2 na posição correspondente.
+
+    int main(void)
+    {
+        int m1[3][3], m2[3][3], m3[3][3];
+
+        printf("Digite a matriz 1:\n");
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                scanf("%d", &m1[i][j]);
+            }
+        }
+
+        printf("Digite a matriz 2:\n");
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                scanf("%d", &m2[i][j]);
+
+                if(m1[i][j] >= m2[i][j])
+                {
+                    m3[i][j] = m1[i][j];
+                }
+                else 
+                {
+                    m3[i][j] = m2[i][j];
+                }
+            }
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                printf("%d%c", m3[i][j], (j==2) ? '\n' : ' ');
+            }
+        }
+    }*/
+
+    /*57) Construa um programa que calcule o determinante de uma matriz 3 x 3.*/
+
+
