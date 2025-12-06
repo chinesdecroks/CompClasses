@@ -1611,4 +1611,68 @@ resultante.
         }
     }*/
 
-    /**/
+    /*59) Com relação ao exercício anterior, calcule agora a média da turma em cada prova e na nota final.
+
+    int main(void)
+    {
+        double m[10][3], mp[3], media = 0;
+
+        for (int i = 0; i < 3; i++)
+            mp[i] = 0;
+
+        for(int i = 0; i < 10; i++)
+        {
+            for (int  j = 0; j < 3; j++)
+            {
+                scanf("%lf", &m[i][j]);
+            }
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                mp[j] += m[i][j];
+            }
+        }
+
+        for (int i = 0; i < 3; i++)
+        {
+            media += mp[i]/10;
+            printf("Media prova %d = %.2lf\n", i+1, mp[i]/10);
+        }
+
+        printf("A media da turma = %.2lf\n", media/3);
+
+    }*/
+
+    /*60) Neste problema você deverá fazer um programa para verificar
+se uma matriz quadrada de dimensão 4 com números inteiros é ou não inca. A matriz é inca quando,
+partindo do canto superior esquerdo da matriz, no sentido horário, em espiral, for possível verificar que
+a posição seguinte na ordem é o inteiro consecutivo da posição anterior.*/
+
+    int main(void)
+    {
+        int m[4][4];
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                scanf("%d", &m[i][j]);
+            }
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4-1; j++)
+            {
+               if (m[i][j] == m[i][j+1] - 1)
+               {
+                
+               }
+            }
+        }
+
+
+    }
