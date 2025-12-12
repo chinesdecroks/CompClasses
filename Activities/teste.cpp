@@ -1611,4 +1611,113 @@ resultante.
         }
     }*/
 
-    /**/
+    /*. Neste problema você deverá fazer um programa para verificar
+se uma matriz quadrada de dimensão 4 com números inteiros é ou não inca. A matriz é inca quando,
+partindo do canto superior esquerdo da matriz, no sentido horário, em espiral, for possível verificar que
+a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Exemplo de uma matriz inca:*/
+
+    int main(void)
+    {
+        int m[4][4],t[3][3], r[2][2], v[16], a = 0,b=11, l = 0, c = 0, ord, temp = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+
+                scanf("%d", &m[i][j]);
+            }
+        }
+
+        
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (i == 0)
+                {
+                    v[a] = m[i][j];
+                    a++;
+                } else if (j == 3 && i != 0)
+                {
+                    v[a] = m[i][j];
+                    a++;
+                } else 
+                {
+                    t[l][c] = m[i][j];
+
+                    c++;
+                    if (c == 3)
+                    {
+                        c = 0;
+                        l++;
+                    }
+                }
+            }
+        }
+
+         l = 0;
+        c = 0;
+
+        for (int i = 0; i < 4-1; i++)
+        {
+            
+            
+
+            for (int j = 0; j < 4-1; j++)
+            {
+                if (i == 2)
+                {
+                    v[a] = t[i][j];
+                    a++;
+                    temp++;
+                } else if (j == 0 && i != 2)
+                {
+                    v[a] = t[i][j];
+                    a++;
+                    temp++;
+                } else 
+                {
+                    r[l][c] = t[i][j];
+                    c++;
+                    if (c == 2)
+                    {
+                        c = 0;
+                        l++;
+                    }
+                }
+
+                if (temp == 5)
+                {
+
+                    for (int k = 7; k < 11; k++)
+                    {
+                        v[k] = v[b];
+
+                        b--;
+                    }
+                }
+
+            }
+        }
+
+        for (int i = 0; i < 4-2; i++)
+        {
+            for (int j = 0; j < 4-2; j++)
+            {
+                if (i == 0)
+                {
+                    v[a] = r[i][j];
+                    a++;
+                } else if (j == 1 && i != 0)
+                {
+                    v[a] = r[i][j];
+                    a++;
+                } 
+            }
+        }
+
+        for (int i = 0; i < 16; i++)
+            printf("v[%d] = %d\n", i, v[i]);
+    }
