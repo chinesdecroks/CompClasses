@@ -1618,11 +1618,11 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
     int main(void)
     {
-        int m[4][4],t[3][3], r[2][2], v[16], a = 0,b=11, l = 0, c = 0, ord, temp = 0;
+        int c = 4, m[c][c], v[16], a = 0,b=11, l = 0, c = 0,ord, temp = 0;
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < c; i++)
         {
-            for (int j = 0; j < 4; j++)
+            for (int j = 0; j < c; j++)
             {
 
                 scanf("%d", &m[i][j]);
@@ -1631,9 +1631,9 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
         
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < c; i++)
         {
-            for (int j = 0; j < 4; j++)
+            for (int j = 0; j < c; j++)
             {
                 if (i == 0)
                 {
@@ -1645,7 +1645,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
                     a++;
                 } else 
                 {
-                    t[l][c] = m[i][j];
+                    m[l][c] = m[i][j];
 
                     c++;
                     if (c == 3)
@@ -1669,17 +1669,17 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
             {
                 if (i == 2)
                 {
-                    v[a] = t[i][j];
+                    v[a] = m[i][j];
                     a++;
                     temp++;
                 } else if (j == 0 && i != 2)
                 {
-                    v[a] = t[i][j];
+                    v[a] = m[i][j];
                     a++;
                     temp++;
                 } else 
                 {
-                    r[l][c] = t[i][j];
+                    m[l][c] = m[i][j];
                     c++;
                     if (c == 2)
                     {
@@ -1692,7 +1692,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
                 {
 
                     for (int k = 7; k < 11; k++)
-                    {
+                    { 
                         v[k] = v[b];
 
                         b--;
@@ -1708,11 +1708,11 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
             {
                 if (i == 0)
                 {
-                    v[a] = r[i][j];
+                    v[a] = m[i][j];
                     a++;
                 } else if (j == 1 && i != 0)
                 {
-                    v[a] = r[i][j];
+                    v[a] = m[i][j];
                     a++;
                 } 
             }
