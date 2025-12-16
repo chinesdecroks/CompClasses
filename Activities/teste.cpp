@@ -1611,10 +1611,10 @@ resultante.
         }
     }*/
 
-    /*. Neste problema você deverá fazer um programa para verificar
+    /*60) Neste problema você deverá fazer um programa para verificar
 se uma matriz quadrada de dimensão 4 com números inteiros é ou não inca. A matriz é inca quando,
 partindo do canto superior esquerdo da matriz, no sentido horário, em espiral, for possível verificar que
-a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Exemplo de uma matriz inca:*/
+a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Exemplo de uma matriz inca:
 
 //O seguinte algoritmo se aplica para qualquer matriz quadrada
 
@@ -1744,4 +1744,27 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
         }
 
 
-}
+}*/
+
+    /*61) Crie um programa C que calcule o comprimento de uma string sem utilizar a função strlen().*/
+
+    int main(void)
+    {
+        char str[5000];
+        int cont = 0, cont1 = 0;
+
+        scanf("%[^\n]s", str);
+
+        for (int i = 0; str[i] != '\0'; i++)
+        {
+            if ((str[i] >= 'A' && str[i] <= 'Z') || (str[i] >= 'a' && str[i] <= 'z'))
+                cont++;
+
+            cont1++;
+        }
+
+        printf("O tamanho da string eh %d\nA quantidade de palavras eh %d\n", cont1, cont);
+
+
+
+    }
