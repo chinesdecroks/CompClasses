@@ -1616,116 +1616,132 @@ se uma matriz quadrada de dimensão 4 com números inteiros é ou não inca. A m
 partindo do canto superior esquerdo da matriz, no sentido horário, em espiral, for possível verificar que
 a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Exemplo de uma matriz inca:*/
 
+//O seguinte algoritmo se aplica para qualquer matriz quadrada
+
     int main(void)
+{
+    int t, a = 0, b = 0, y = 0;
+
+    printf("Digite o tamanho da matriz quadrada: ");
+    scanf("%d", &t);
+
+    int m[t][t], v[t*t];
+
+    for (int i = 0; i < t; i++)
+        for (int j = 0; j < t; j++)
+            scanf("%d", &m[i][j]);
+
+
+    while (t - a >= 1)
     {
-        int d = 4, m[d][d], v[d*d], a = 0,b=11, l = 0, c = 0,ord, temp = 0;
+        int l = 0, c = 0, n = 0, N = 0, temp, ord;
 
-        for (int i = 0; i < d; i++)
+        if (a % 2 == 0)
         {
-            for (int j = 0; j < d; j++)
+            for (int i = 0; i <  t-a; i++)
             {
-
-                scanf("%d", &m[i][j]);
-            }
-        }
-
-        
-
-        for (int i = 0; i < d; i++)
-        {
-            for (int j = 0; j < d; j++)
-            {
-                if (i == 0)
+                for (int j = 0; j < t-a; j++)
                 {
-                    v[a] = m[i][j];
-                    a++;
-                } else if (j == 3 && i != 0)
-                {
-                    v[a] = m[i][j];
-                    a++;
-                } else 
-                {
-                    m[l][c] = m[i][j];
-
-                    c++;
-                    if (c == 3)
+                    if (i == 0)
                     {
-                        c = 0;
-                        l++;
-                    }
-                }
-            }
-        }
-
-         l = 0;
-        c = 0;
-
-        for (int i = 0; i < d-1; i++)
-        {
-            
-            
-
-            for (int j = 0; j < d-1; j++)
-            {
-                if (i == 2)
-                {
-                    v[a] = m[i][j];
-                    a++;
-                    temp++;
-                } else if (j == 0 && i != 2)
-                {
-                    v[a] = m[i][j];
-                    a++;
-                    temp++;
-                } else 
-                {
-                    m[l][c] = m[i][j];
-                    c++;
-                    if (c == 2)
+                        v[b] = m[i][j];
+                        b++;
+                    } else if (j == t - a - 1 && i != 0)
                     {
-                        c = 0;
-                        l++;
-                    }
-                }
-
-                if (temp == 5)
-                {
-
-                    for (int k = 7; k < 10; k++)
+                        v[b] = m[i][j];
+                        b++;
+                    } else 
                     {
+                        m[l][c] = m[i][j];
+
+                        c++;
+
+                        if (c == t -a -1)
+                        {
+                            c = 0;
+                            l++;
+                        }
+
                         
-                            ord = v[k];
-                            v[k] = v[b];
-                            v[b] = ord;
+                    }
+                }
+            }
 
-                        b--;
+            
+        } 
+        else if (a % 2 != 0)
+        {
+
+            n = b;
+            for (int i = 0; i <  t-a; i++)
+            {
+                for (int j = 0; j < t-a; j++)
+                {
+                    if (i == t-a-1)
+                    {
+                        v[b] = m[i][j];
+                        b++;
+                    } else if (j == 0 && i != t-a-1)
+                    {
+                        v[b] = m[i][j];
+                        b++;
+                    } else 
+                    {
+                        m[l][c] = m[i][j];
+
+                        c++;
+
+                        if (c == t -a -1)
+                        {
+                            c = 0;
+                            l++;
+                        }
+
+                        
                     }
                 }
 
-            }
-        }
+                if (i == t-a-1)
+                {
+                    N = b-1;
 
-        for (int i = 0; i < d-2; i++)
-        {
-            for (int j = 0; j < d-2; j++)
-            {
-                if (i == 0)
-                {
-                    v[a] = m[i][j];
-                    a++;
-                } else if (j == 1 && i != 0)
-                {
-                    v[a] = m[i][j];
-                    a++;
-                } 
-                else 
-                {
-                    v[d*d-1] = m[i][j];
+                    ord = (N+n)/2;
+
+                    for (int j = n; j < ord; j++)
+                    {
+                        temp = v[j];
+                        v[j] = v[N];
+                        v[N] = temp;
+
+                        N--;
+                    }
                 }
             }
         }
 
-        for (int i = 0; i < 15; i++)
-            
         
-    }
+        a++;
+    } 
+
+    for (int i = 0; i < t*t-1; i++)
+        {
+            if (v[i] == v[i+1]-1)
+            {
+                y = 1;
+            } else 
+            {
+                y = 0;
+                break; 
+            }
+        }
+
+        if (y)
+        {
+            printf("Eh piramide inca\n");
+        } else
+        {
+            printf("Nao eh piramide inca\n");
+        }
+
+
+}
