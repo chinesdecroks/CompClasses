@@ -1746,7 +1746,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
 }*/
 
-    /*61) Crie um programa C que calcule o comprimento de uma string sem utilizar a função strlen().*/
+    /*61) Crie um programa C que calcule o comprimento de uma string sem utilizar a função strlen().
 
     int main(void)
     {
@@ -1767,4 +1767,22 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
 
 
-    }
+    }*/
+
+    /*62) Crie um programa C que compara duas strings e informe se elas são iguais ou diferentes
+
+    int main(void)
+    {
+        char s1[50], s2[50];
+
+        fgets(s1, sizeof(s1), stdin);
+        fgets(s2, sizeof(s2), stdin);
+
+
+        if (!strcmp(s1, s2))
+        {
+            printf("As strings sao iguais\n");
+        } else{
+            printf("As strings sao diferentes\n");
+        }
+    }*/
