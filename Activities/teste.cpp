@@ -1786,3 +1786,115 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
             printf("As strings sao diferentes\n");
         }
     }*/
+
+    /*63) ) Crie um programa C que receba uma palavra e imprima de trás para frente
+
+    int main(void)
+    {
+        char s[1000], si[1000];
+        
+
+        fgets(s, sizeof(s), stdin);
+
+        int comp = strlen(s) - 2, i = 0;
+        
+
+        for (i = 0; s[i] != '\0'; i++)
+        {
+            
+            
+                si[i] = s[comp];
+
+                comp--;
+            
+        }
+
+        si[i] = '\0';
+
+        printf("%s", si);
+
+    }*/
+
+    /*64) Crie um programa C que receba três strings e as imprima em ordem alfabética*/
+
+    int main(void)
+    {
+        char s[1000], s1[1000], s2[1000];
+        
+        
+
+        fgets(s, sizeof(s), stdin);
+        fgets(s1, sizeof(s1), stdin);
+        fgets(s2, sizeof(s2), stdin);
+
+        if (strcmp(s, s1) < 0 && strcmp(s, s2) < 0)
+        {
+            printf("%s", s);
+
+            if (strcmp(s1, s2) < 0)
+            {
+                printf("%s", s1);
+
+            } else
+            {
+                printf("%s", s2);
+            }
+
+            if (strcmp(s2, s1) < 0)
+            {
+                printf("%s", s2);
+
+            } else
+            {
+                printf("%s", s1);
+            }
+        } else if (strcmp(s1, s) < 0 && strcmp(s1, s2) < 0)
+        {
+            printf("%s", s1);
+
+            if (strcmp(s, s2) < 0)
+            {
+                printf("%s", s);
+
+            } else
+            {
+                printf("%s", s2);
+            }
+
+             if (strcmp(s2, s) < 0)
+            {
+                printf("%s", s2);
+
+            } else
+            {
+                printf("%s", s);
+            }
+
+        } else 
+        {
+            printf("%s", s2);
+
+            if (strcmp(s, s1) < 0)
+            {
+                printf("%s", s);
+
+            } else
+            {
+                printf("%s", s1);
+            }
+
+            if (strcmp(s1, s) < 0)
+            {
+                printf("%s", s1);
+
+            } else
+            {
+                printf("%s", s);
+            }
+        }
+
+        
+        
+        
+        
+    }
