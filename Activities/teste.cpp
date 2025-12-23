@@ -1951,7 +1951,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
     }*/
 
-    /*67) Escreva um programa C que leia uma string e converta todos os caracteres para maiúscula*/
+    /*67) Escreva um programa C que leia uma string e converta todos os caracteres para maiúscula
 
     int main(void)
     {
@@ -1965,6 +1965,27 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
             if (s[i] >= 'a' && s[i] <= 'z')
             {
                 s[i] -= 32;
+            }
+        }
+
+        printf("%s", s);
+
+    }*/
+
+    /*68) Escreva um programa C que leia uma string e converta todos os caracteres para minúscula*/
+    
+    int main(void)
+    {
+        char s[1000];
+
+        printf("Digite uma frase:\n");
+        fgets(s, sizeof(s), stdin);
+
+        for (int i = 0; s[i] != '\0'; i++)
+        {
+            if (s[i] >= 'A' && s[i] <= 'Z')
+            {
+                s[i] += 32;
             }
         }
 
