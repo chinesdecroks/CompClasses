@@ -1891,11 +1891,14 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
         
     }*/
 
+    /*65) Crie um programa C que receba uma palavra e calcule quantas vogais essa palavra possui.
+
     int main(void)
     {
         char word[100];
         int vowel = 0;
 
+        printf("Digite uma palavra: ");
         fgets(word, sizeof(word), stdin);
 
         for (int i = 0; word[i] != '\0'; i++)
@@ -1914,4 +1917,35 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
         }
 
         printf("O numero de vogais da palavra sao %d\n", vowel);
+    }*/
+
+    /*66) Crie um programa C que leia uma string e conte o número de vogais e de consoantes.*/
+
+    int main(void)
+    {
+        char word[100];
+        int vowel = 0, consonant = 0;
+
+        printf("Digite uma palavra: ");
+        fgets(word, sizeof(word), stdin);
+
+        for (int i = 0; word[i] != '\0'; i++)
+        {
+            if (word[i] >= 'A' && word[i] <= 'Z' || word[i] >= 'a' && word[i] <= 'z')
+            {
+                if (word[i] == 'A' || word[i] == 'a' ||
+                word[i] == 'E' || word[i] == 'e' ||
+                word[i] == 'I' || word[i] == 'i' ||
+                word[i] == 'O' || word[i] == 'o' ||
+                word[i] == 'U' || word[i] == 'u')
+                {
+                    vowel++;
+                } else 
+                {
+                    consonant++;
+                }
+            }
+        }
+
+        printf("O numero de vogais da palavra sao %d e o numero de consoantestes eh %d\n", vowel, consonant);
     }
