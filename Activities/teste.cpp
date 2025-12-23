@@ -1788,7 +1788,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
     }*/
 
     /*63) ) Crie um programa C que receba uma palavra e imprima de trás para frente
-
+    
     int main(void)
     {
         char s[1000], si[1000];
@@ -1796,10 +1796,10 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
         fgets(s, sizeof(s), stdin);
 
-        int comp = strlen(s) - 2, i = 0;
+        int comp = strlen(s) - 1, i = 0;
         
 
-        for (i = 0; s[i] != '\0'; i++)
+        for (i = 0; s[i] != '\n'; i++)
         {
             
             
@@ -1815,7 +1815,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
     }*/
 
-    /*64) Crie um programa C que receba três strings e as imprima em ordem alfabética*/
+    /*64) Crie um programa C que receba três strings e as imprima em ordem alfabética
 
     int main(void)
     {
@@ -1827,6 +1827,8 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
         fgets(s1, sizeof(s1), stdin);
         fgets(s2, sizeof(s2), stdin);
 
+        printf("\n");
+
         if (strcmp(s, s1) < 0 && strcmp(s, s2) < 0)
         {
             printf("%s", s);
@@ -1834,20 +1836,16 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
             if (strcmp(s1, s2) < 0)
             {
                 printf("%s", s1);
-
-            } else
-            {
                 printf("%s", s2);
-            }
+
+            } 
 
             if (strcmp(s2, s1) < 0)
             {
                 printf("%s", s2);
-
-            } else
-            {
                 printf("%s", s1);
-            }
+
+            } 
         } else if (strcmp(s1, s) < 0 && strcmp(s1, s2) < 0)
         {
             printf("%s", s1);
@@ -1855,20 +1853,16 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
             if (strcmp(s, s2) < 0)
             {
                 printf("%s", s);
-
-            } else
-            {
                 printf("%s", s2);
-            }
+
+            } 
 
              if (strcmp(s2, s) < 0)
             {
                 printf("%s", s2);
-
-            } else
-            {
                 printf("%s", s);
-            }
+
+            } 
 
         } else 
         {
@@ -1877,24 +1871,47 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
             if (strcmp(s, s1) < 0)
             {
                 printf("%s", s);
-
-            } else
-            {
                 printf("%s", s1);
-            }
+
+            } 
+            
+                
 
             if (strcmp(s1, s) < 0)
             {
                 printf("%s", s1);
-
-            } else
-            {
                 printf("%s", s);
-            }
+
+            } 
         }
 
         
         
         
         
+    }*/
+
+    int main(void)
+    {
+        char word[100];
+        int vowel = 0;
+
+        fgets(word, sizeof(word), stdin);
+
+        for (int i = 0; word[i] != '\0'; i++)
+        {
+            if (word[i] >= 'A' && word[i] <= 'Z' || word[i] >= 'a' && word[i] <= 'z')
+            {
+                if (word[i] == 'A' || word[i] == 'a' ||
+                word[i] == 'E' || word[i] == 'e' ||
+                word[i] == 'I' || word[i] == 'i' ||
+                word[i] == 'O' || word[i] == 'o' ||
+                word[i] == 'U' || word[i] == 'u')
+                {
+                    vowel++;
+                }
+            }
+        }
+
+        printf("O numero de vogais da palavra sao %d\n", vowel);
     }
