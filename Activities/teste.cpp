@@ -1919,7 +1919,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
         printf("O numero de vogais da palavra sao %d\n", vowel);
     }*/
 
-    /*66) Crie um programa C que leia uma string e conte o número de vogais e de consoantes.*/
+    /*66) Crie um programa C que leia uma string e conte o número de vogais e de consoantes.
 
     int main(void)
     {
@@ -1948,4 +1948,26 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
         }
 
         printf("O numero de vogais da palavra sao %d e o numero de consoantestes eh %d\n", vowel, consonant);
+
+    }*/
+
+    /*67) Escreva um programa C que leia uma string e converta todos os caracteres para maiúscula*/
+
+    int main(void)
+    {
+        char s[1000];
+
+        printf("Digite uma frase:\n");
+        fgets(s, sizeof(s), stdin);
+
+        for (int i = 0; s[i] != '\0'; i++)
+        {
+            if (s[i] >= 'a' && s[i] <= 'z')
+            {
+                s[i] -= 32;
+            }
+        }
+
+        printf("%s", s);
+
     }
