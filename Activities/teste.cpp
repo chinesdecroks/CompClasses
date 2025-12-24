@@ -629,7 +629,7 @@ simultaneamente pelos dois.
         }
     }*/
 
-    /*Escreva o menu de opções, como no exemplo abaixo. Leia a opção do usuário, em seguida leia 2
+    /*28) Escreva o menu de opções, como no exemplo abaixo. Leia a opção do usuário, em seguida leia 2
 números reais e execute a operação escolhida sobre eles. (Escreva uma mensagem de erro se a
 opção for inválida.)
 
@@ -1205,7 +1205,7 @@ dado por: x1 * y1 + x2 * y2 + ... + x5 * y5. No final, imprima o resultado.
         printf("O produto escalar de x e y eh %d\n", soma);
     }*/
 
-    /* Escreva um programa que calcule o desvio padrão de um vetor v contendo n = 10 números reais.
+    /*47) Escreva um programa que calcule o desvio padrão de um vetor v contendo n = 10 números reais.
 Sendo m a media do vetor, a fórmula do desvio padrão é:
 
     int main(void)
@@ -1972,7 +1972,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
     }*/
 
-    /*68) Escreva um programa C que leia uma string e converta todos os caracteres para minúscula*/
+    /*68) Escreva um programa C que leia uma string e converta todos os caracteres para minúscula
     
     int main(void)
     {
@@ -1991,4 +1991,51 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
         printf("%s", s);
 
+    }*/
+
+    /*69) Crie um programa C que leia uma string do teclado e diga se ela é palíndromo*/
+
+    int main(void)
+    {
+        char s[1000], sinv[1000];
+        int c = 0;
+
+        printf("Digite uma frase:\n");
+        fgets(s, sizeof(s), stdin);
+
+        for (int i = 0; s[i] != '\0'; i++)
+        {
+            if (s[i] >= 'A' && s[i] <= 'Z' || s[i] >= 'a' && s[i] <= 'z')
+            {
+                s[c] = s[i];
+                if (s[c] >= 'A' && s[c] <= 'Z')
+                {
+                    s[c] += 32;
+                }
+                c++;
+
+                
+            }
+        }
+
+        s[c] = '\0';
+
+        int t = strlen(s), r = t, j = 0;
+
+        for ( j = 0; j < t; j++)
+        {
+            sinv[j] = s[r-1];
+            r--;
+        }
+
+        sinv[j] = '\0';
+
+        if (!strcmp(s, sinv))
+        {
+            printf("Eh palindromo\n");
+        }
+        else
+        {
+            printf("Nao eh palindromo\n");
+        }
     }
