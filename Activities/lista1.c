@@ -1993,7 +1993,7 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
 
     }*/
 
-    /*69) Crie um programa C que leia uma string do teclado e diga se ela é palíndromo*/
+    /*69) Crie um programa C que leia uma string do teclado e diga se ela é palíndromo
 
     int main(void)
     {
@@ -2038,4 +2038,37 @@ a posição seguinte na ordem é o inteiro consecutivo da posição anterior. Ex
         {
             printf("Nao eh palindromo\n");
         }
+    }*/
+
+    /*70)  Implemente um programa que faça uso desse Código de
+César (3 posições), entre com uma string e retorne a string codificada.*/
+
+
+    int main(void)
+    {
+        char s[10000];
+        int i = 0;
+
+        printf("Digite uma mensagem que sera codificada:\n");
+        fgets(s, sizeof(s), stdin);
+
+        for(; s[i] != '\0'; i++)
+        {
+            if (s[i] >= 'a' && s[i] <= 'z' || s[i] >= 'A' && s[i] <= 'Z')
+            {
+                if (s[i] >= 'a' && s[i] <= 'z')
+                {
+                    s[i] -= 32;
+                }
+
+                s[i] += 3;
+
+                if (s[i] >= 'Z')
+                {
+                    s[i] -= 25;
+                }
+            }
+        }
+
+        printf("%s", s);
     }
