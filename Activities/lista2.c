@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include <string.h>
 
 /*1) Escreva um programa C que:
 a. Crie um arquivo texto de nome “arq.txt”.
@@ -268,7 +270,7 @@ int main(void)
 }*/
 
 /*9) Construa uma estrutura aluno com nome, número de matrícula e curso. Leia do usuário a informação
-de 5 alunos, armazene em vetor dessa estrutura e imprima os dados na tela e em um arquivo .txt*/
+de 5 alunos, armazene em vetor dessa estrutura e imprima os dados na tela e em um arquivo .txt
 
 typedef struct Aluno
 {
@@ -324,4 +326,425 @@ int main(void)
 
     fclose(f);
 
+}*/
+
+/*10) Escreva um programa que converta coordenadas polares para cartesianas:
+ Crie e leia um ponto em coordenada polar, composto por raio (r) e argumento (a) em radianos.
+ Crie outro ponto, agora em coordenada cartesiana, composto por x e y, sabendo que x = r * cos(a)
+e y = r * sin(a).
+Implemente os pontos em cada tipo de coordenada como duas estruturas. No programa principal, leia
+um ponto em coordenada polar e mostre as coordenadas do ponto gerado no plano cartesiano.
+
+typedef struct Polares
+{
+    double r;
+    double rad;
+    
+} polares;
+
+typedef struct Cartesiana
+{
+    double x;
+    double y;
+    
+} cart;
+
+int main(void)
+{
+    
+    const double pi = 3.14159265;
+    polares p1;
+    cart c1;
+    
+    
+    double graus;
+    
+    
+    printf("Informe as cordenadas polares de um ponto(Raio/Angulo em graus):\n");
+    scanf("%lf %lf", &p1.r, &graus);
+    
+    p1.rad = graus * pi/180;
+    c1.x = p1.r * cos(p1.rad);
+    c1.y = p1.r * sin(p1.rad);
+    
+    printf("O ponto em coordenadas cartesianas eh X = %.3lf e Y = %.3lf\n", c1.x, c1.y);
+
+    return 0;
+}*/
+
+/*11) Escreva um programa com novos tipos de dados abaixo. Em seguida, crie uma instância (i.e., uma
+variável) de um compromisso.
+ Horário: composto de hora e minuto.
+ Data: composto de dia, mês e ano.
+ Compromisso: composto de uma data, horário e texto que descreva o compromisso.
+
+typedef struct Horario
+{
+    int hora;
+    int min;
+} hor ;
+
+typedef struct Data
+{
+    int dia;
+    int mes;
+    int ano;
+} dat;
+
+typedef struct Compromisso
+{
+    hor hours;
+    dat date;
+    char ocasiao[10000];
+    
+} comp;
+
+int main(void)
+{
+    
+    comp c;
+    
+    printf("Digite o horario(hora e min), a data(dia, mes e ano) e um texto que desceve o compromisso:\n");
+    scanf("%d %d %d %d %d", &c.hours.hora, &c.hours.min, &c.date.dia, &c.date.mes, &c.date.ano);
+    getchar();
+    scanf("%[^\n]", c.ocasiao);
+
+    printf("Horario = %d:%d\nDia = %d/%d/%d\nCompromisso:\n%s\n", c.hours.hora, c.hours.min, c.date.dia, c.date.mes, c.date.ano, c.ocasiao);
+    return 0;
+}*/
+
+/*12) Crie uma estrutura para representar um vetor no R3
+, implemente um programa que calcule a soma de
+dois vetores.
+
+typedef struct Vetores
+{
+    double x;
+    double y;
+    double z;
+} vet;
+
+int main(void)
+{
+    vet v[2], vR = {0,0,0};
+    
+
+    printf("Digite dois vetores no R³:\n");
+
+    for(int i = 0; i < 2; i++)
+    {
+        scanf("%lf %lf %lf", &v[i].x, &v[i].y, &v[i].z);
+        vR.x += v[i].x;
+        vR.y += v[i].y;
+        vR.z += v[i].z;
+
+    }
+
+    printf("O vetor resultante da soma eh (%.1lf %.1lf %.1lf)\n", vR.x, vR.y, vR.z);
+}*/
+
+/*13) Crie um programa que leia um vetor com os dados de 5 carros: marca (máximo 15 letras), ano e preço.
+Leia um valor p e mostre as informações de todos os carros com preço menor que p. Repita este
+processo até que seja lido um valor p = 0.
+
+typedef struct Carro
+{
+    char marca[15];
+    int ano;
+    double preco;
+} car;
+
+
+int main(void)
+{
+    car c[5];
+    double p = 1;
+
+    printf("De entrada de 5 carros.\nDeve-se informar a marca, o ano e o preco.\n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("Carro %d:\n", i+1);
+        scanf("%[^\n] %d %lf", c[i].marca, &c[i].ano, &c[i].preco);
+        setbuf(stdin, NULL);
+    }
+
+    while (p != 0)
+    {
+        printf("\nBusca por preco:");
+        scanf("%lf", &p);
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (c[i].preco < p)
+            {
+                printf("\nMarca: %s\nAno: %d\nPreco: R$ %.2lf\n", c[i].marca, c[i].ano, c[i].preco);
+            }
+
+        }
+    }
+}*/
+
+/*14) Crie um programa que leia um vetor com dados de 5 livros: título (máximo de 30 letras), autor (máximo
+de 15 letras) e ano. Procure um livro por título, perguntando ao usuário qual título deseja buscar.
+Mostre os dados de todos os livros encontrados.
+
+typedef struct Livro
+{
+    char title[30];
+    char author[15];
+    int year;
+} liv;
+
+
+
+int main(void)
+{
+    liv l[5];
+    char p[30];
+
+    printf("De entrada em 5 livros.\nDeve-se informar a o titulo, o/a autor(a) e o ano.\n");
+    for (int i = 0; i < 5; i++)
+    {
+        printf("Livro %d:\n", i+1);
+        scanf("%[^\n] %[^\n] %d", l[i].title, l[i].author, &l[i].year);
+        setbuf(stdin, NULL);
+    }
+
+    
+    
+        printf("\nBusca por livro escreva o titulo: ");
+        scanf("%[^\n]", p);
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (!strcmp(l[i].title, p))
+            {
+                printf("\nTitulo: %s\nAutor(a): %s\nAno: %d\n", l[i].title, l[i].author, l[i].year);
+                break;
+            } else if (i == 4)
+            {
+                printf("Livro não encontrado\n");
+            }
+
+        }
+}*/
+
+/*15) Crie um programa que controla o consumo de energia dos eletrodomésticos de uma casa:
+ Cadastre 5 eletrodomésticos com nome (máximo 15 letras), potência (real, em kW) e tempo ativo
+por dia (real, em horas).
+ Leia um tempo t (em dias), calcule e mostre o consumo total na casa e o consumo relativo de cada
+eletrodoméstico (consumo/consumo total) nesse período de tempo. Apresente este último dado em
+porcentagem.
+
+typedef struct Eletrodomestico
+{
+    char nome[15];
+    double potencia;
+    double tempo;
+    double c;
+    double cr;
+} eledom;
+
+int main(void)
+{
+    eledom e[5];
+    int d;
+    double ct = 0;
+
+    printf("Indique os 5 eletrodomesticos que mais gastam energia.\nIndique nome, potencia(kW) e tempo em horas ao dia:\n");
+
+    for(int i = 0; i < 5; i++)
+    {
+        printf("Eletrodom. %d:\n", i+1);
+        scanf("%[^\n] %lf %lf", e[i].nome, &e[i].potencia, &e[i].tempo);
+        setbuf(stdin, NULL);
+    }
+
+    printf("Indique os dias para calcular o gasto de enegia(kWh): ");
+    scanf("%d", &d);
+
+    for (int i = 0; i < 5; i++)
+    {
+        e[i].c = e[i].tempo*e[i].potencia*d;
+        ct += e[i].c;
+        
+            if (i == 4)
+            {
+                printf("O consumo total eh %.2lf kWh\nConsumo relativo:\n", ct);
+                for (int j = 0; j < 5; j++)
+                {
+                    e[j].cr = e[j].c/ct*100;
+                    printf("%s: %.2lf %%\n",e[j].nome, e[j].cr);
+                }
+            }
+    }
+
+    
+}*/
+
+/*16) Escreva uma função que receba 2 parâmetros reais, a e b, e retorne (a*(b+3))/(a-b).
+
+double expression(double a, double b);
+
+int main(void)
+{
+    
+    double a, b;
+    scanf("%lf %lf", &a, &b);
+
+    printf("%.2lf\n", expression(a, b));
 }
+
+double expression(double a, double b)
+{
+    double r = (a*(b+3))/(a-b);
+
+    return r;
+}*/
+
+/*17) Escreva uma função que receba o raio de um círculo como parâmetro de entrada e calcule, como
+parâmetros de saída, a área, o perímetro e o diâmetro do círculo
+
+void circulo(double r);
+
+int main(void)
+{
+    double r;
+    scanf("%lf", &r);
+
+    circulo(r);
+}
+
+void circulo(double r)
+{
+    const double pi = 3.14159;
+    double d = 2*r;
+    double p = d*pi;
+    double a = r*r*pi;
+
+    printf("Diametro: %.2lf\nPerimetro: %.2lf\nArea: %.2lf\n", d, p, a);
+}*/
+
+/*18) Escreva uma função que receba um número inteiro positivo, n, e calcule o somatório de 1 até n.
+
+void f(int a);
+
+int main(void)
+{
+
+    int a;
+    scanf("%d", &a);
+
+    f(a);
+
+}
+
+void f(int a)
+{
+    int s = 0;
+
+    for (int i = 0; i <= a; i++)
+    {
+        s += i;
+    }
+
+    printf("O somatorio de 1 ate o numero %d eh %d\n", a, s);
+}*/
+
+/*19) Escreva uma função que receba, como parâmetro, três valores, X, Y e Z, e verifique se seguimentos
+de reta com essas medidas podem formar um triângulo (o comprimento de cada lado de um triângulo é
+menor do que a soma dos outros dois lados) e, em caso afirmativo, qual o tipo de triângulo. A função
+deve retornar:
+ 0: se não for triângulo.
+ 1: se for triângulo escaleno (3 lados diferentes).
+ 2: se for triângulo isósceles (2 lados iguais).
+ 3: se for triângulo equilátero (3 lados iguais).
+
+void ehtriangulo(int a, int b, int c);
+
+int main(void)
+{
+    int x,y,z;
+    scanf("%d %d %d", &x, &y, &z);
+
+    ehtriangulo(x,y,z);
+
+}
+
+void ehtriangulo(int a, int b, int c)
+{
+    if (a > b+c || c > a+b || b > a+c)
+    {
+        printf("Nao forma triangulo\n");
+    } else
+    {
+        if (a == b && b == c)
+        {
+            printf("Triangulo Equilatero\n");
+        } else if (a == b ^ a == c ^ b == c)
+        {
+            printf("Triangulo Isoceles\n");
+        } else 
+        {
+            printf("Triangulo escaleno\n");
+        }
+    }
+}*/
+
+/*20) Escreva um programa C que crie um vetor de 5 inteiros, uma função que calcule a soma de seus
+elementos e outra função que imprima o vetor.
+
+int somaVetor(int v[]);
+int mostraVetor (int v[]);
+
+int main(void)
+{
+    int v[5] = {1,2,3,4,5};
+    int s = somaVetor(v);
+    
+    mostraVetor(v);
+
+    printf("A soma dos elementos do vetor eh %d\n", s);
+    
+}
+
+int somaVetor(int v[])
+{
+    int s = 0;
+
+    for(int i = 0; i < 5; i++)
+    {
+        s += v[i];
+    }
+
+    return s;
+}
+
+int mostraVetor (int v[])
+{
+    for (int i = 0; i < 5; i++)
+    {
+        printf("v[%d] = %d\n", i, v[i]);
+    }
+}
+*/
+
+/*21) Escreva uma função que receba 2 argumentos e troque seus valores
+
+void troca(int *a, int *b);
+
+int main(void)
+{
+    int a = 3, b = 2;
+
+    troca(&a, &b);
+
+    printf("%d %d\n", a, b);
+}
+
+void troca(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}*/
