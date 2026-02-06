@@ -748,3 +748,127 @@ void troca(int *a, int *b)
     *a = *b;
     *b = temp;
 }*/
+
+/*22) Escreva uma função recursiva que receba um número inteiro positivo, n, e calcule o somatório de 1 até n.
+
+int f(int a);
+
+int main(void)
+{
+	int a = 5;
+	printf("A soma dos valores de 1 ate %d eh %d\n", a, f(a));
+}
+
+int f(int a)
+{
+	if (a == 1 || a == 0)
+	{
+		return 1;
+	}
+
+	return a + f(a - 1);
+	
+	
+}*/
+
+/*23) Reescreva o exercício 20 para trabalhar com vetores de qualquer tamanho.
+
+int somaVetor(int v[], int a);
+int mostraVetor (int v[], int a);
+
+int main(void)
+{
+    int n;
+    printf("Digite o tamanho do vetor:\n");
+    scanf("%d", &n);
+    int v[n];
+    printf("Digite os valores do vetor:\n");
+
+    for (int i = 0; i < n; i++)
+    {
+	scanf("%d", &v[i]);
+    }
+
+    int s = somaVetor(v, n);
+    
+    mostraVetor(v, n);
+
+    printf("A soma dos elementos do vetor eh %d\n", s);
+    
+}
+
+int somaVetor(int v[], int a)
+{
+    int s = 0;
+
+    for(int i = 0; i < a; i++)
+    {
+        s += v[i];
+    }
+
+    return s;
+}
+
+int mostraVetor (int v[], int a)
+{
+    for (int i = 0; i < a; i++)
+    {
+        printf("v[%d] = %d\n", i, v[i]);
+    }
+}*/
+
+/*24) Escreva uma função que calcule a Sequência de Fibonacci, F, para um parâmetro n fornecido pelo 
+usuário
+
+int fib(int a);
+
+int main(void)
+{
+	int a;
+	scanf("%d", &a);
+	printf("A sequencia de fibonnaci ate %d termo\n", a);
+
+	for (int i = 0; i <= a; i++)
+	{
+		printf("%d%c", fib(i), (i == a) ? '\n' : ' ');
+	} 	
+}
+
+int fib(int a)
+{
+	if (a == 0)
+	{
+		return 0;
+	}
+	if (a == 1)
+	{
+		return 1;
+	}
+
+	return (fib(a - 1) + fib(a - 2));
+}*/
+
+/*25) O número de controle de um CPF (seus 2 últimos dígitos verificadores, DV1 e DV2), são calculados da 
+seguinte forma (considerando os primeiros 9 dígitos do CPF): 
+a. Etapa 1: cálculo de DV1 
+	i. Soma1: soma dos produtos de cada dígito por um peso de 2 a 10, na ordem inversa 
+	   (do nono para o primeiro dígito). 
+	ii. Multiplique a Soma1 por 10 e calcule o resto da divisão do resultado por 11. Se der 
+	    10, DV1 é zero; caso contrário, o DV1 é o próprio resto. 
+b. Etapa 2: cálculo de DV2 
+	i. Soma2: soma dos produtos de cada dígito por um peso de 3 a 11, também na ordem 
+	inversa. 
+	ii. Adicione a Soma2 ao dobro do DV1, multiplique por 10 e calcule o resto da divisão 
+	do resultado por 11. Se der 10, DV2, é zero; caso contrário o DV2 é o próprio resto. 
+c. Etapa 3: Multiplique DV1 por 10, some com DV2 e você terá o número de controle do CPF. */
+
+
+int main(void)
+{
+	
+}
+
+int dv1(int v[])
+{
+	
+}
