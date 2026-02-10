@@ -860,15 +860,112 @@ b. Etapa 2: cálculo de DV2
 	inversa. 
 	ii. Adicione a Soma2 ao dobro do DV1, multiplique por 10 e calcule o resto da divisão 
 	do resultado por 11. Se der 10, DV2, é zero; caso contrário o DV2 é o próprio resto. 
-c. Etapa 3: Multiplique DV1 por 10, some com DV2 e você terá o número de controle do CPF. */
+c. Etapa 3: Multiplique DV1 por 10, some com DV2 e você terá o número de controle do CPF. 
 
+int dv1(int v[]);
+int dv2(int v[]);
 
 int main(void)
 {
+    int v[9];
+    printf("Digite 9 primeiros digitos do CPF:\n");
+    for (int i = 0; i < 9; i++)
+    {
+        scanf("%d", &v[i]);
+    }
+
+    int dv = dv1(v)*10 + dv2(v);
+
+    printf("O digito verificador desses 9 digitos eh %d\n", dv);
 	
 }
 
 int dv1(int v[])
 {
+    int a = 2, soma = 0;
+
+    for (int i = 8; i >= 0; i--)
+    {
+        soma += a*v[i];
+        a++;
+    }
+
+    soma *= 10;
+
+    if (soma % 11 == 10)
+    {
+        return 0;
+    } else 
+    {
+        return soma % 11;
+    }
 	
 }
+
+int dv2 (int v[])
+{
+   int a = 3, soma = 0, v1 = dv1(v);
+
+    for (int i = 8; i >= 0; i--)
+    {
+        soma += a*v[i];
+        a++;
+    } 
+
+    soma += 2*v1;
+    soma *= 10;
+
+    if (soma % 11 == 10)
+    {
+        return 0;
+    } else 
+    {
+        return soma % 11;
+    }
+}*/
+
+/*26) Escreva um programa que declare um inteiro, um real e um char, e ponteiros para inteiro, real, e char.
+Associe variáveis aos ponteiros (use &). Modifique os valores de cada variável usando os ponteiros.
+Imprima os valores das variáveis antes e após a modificação.
+
+int main(void)
+{
+    int a = 7, *p1 = &a;
+    double b = 8.989888, *p2 = &b;
+    char c = 'a', *p3 = &c;
+
+    printf("%d, %lf, %c\n", a, b, c);
+
+    *p1 += 10*9;
+    *p2 += 0.010112;
+    *p3 += 2;
+
+    printf("%d, %lf, %c\n", a, b, c);
+}*/
+
+/*27) Escreva um programa que contenha duas variáveis inteiras. Leia essas variáveis do teclado. Em
+seguida, compare seus endereços e exiba o conteúdo do maior endereço.
+
+int main(void)
+{
+    int a, *p1 = &a, b, *p2 = &b;
+
+    scanf("%d %d", &a, &b);
+
+    printf("a = %d e b = %d\n", &a, &b);
+
+    if (*p1 > *p2)
+    {
+        printf("O endereco %d cujo conteudo eh %d eh maior\n", p1, *p1);
+    } else if (*p1 < *p2)
+    {
+        printf("O endereco %d cujo conteudo eh %d eh maior\n", p2, *p2);
+    } else 
+    {
+        printf("O endereco %d e %d possuem o mesmo conteudo que eh %d\n", p1, p2, *p1);
+        
+    }
+
+*/
+
+
