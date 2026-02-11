@@ -968,4 +968,113 @@ int main(void)
 
 */
 
+/*28) Faça um programa que leia três valores inteiros e chame uma função que receba estes 3 valores de
+entrada e os retorne ordenados, ou seja, o menor valor na primeira variável, o segundo menor valor na
+variável do meio, e o maior valor na última variável. A função deve retornar o valor 1 se os três valores
+forem iguais e 0 se existirem valores diferentes. Exibir os valores ordenados na tela
+OBS: A função ord segue o principio Bubble sort de ordenacao
 
+
+void troca(int *a, int *b);
+void ord(int v[], int n);
+
+int main(void)
+{
+    int v[3];
+
+    for (int i = 0; i < 3; i++)
+    {
+        scanf("%d", &v[i]);
+    }
+
+    ord(v, 3);
+
+    for (int i = 0; i < 3; i++)
+    {
+        printf("v[%d] = %d\n", i, v[i]);
+    }
+
+}
+
+void troca (int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+
+}
+
+void ord(int v[], int n)
+{
+    int trocado;
+    int a = 0;
+    do
+    {
+        trocado = 0;
+        a++;
+
+        for (int i = 0; i < n-a; i++)
+        {
+            if (v[i] > v[i+1])
+            {
+                troca(&v[i], &v[i+1]);
+                trocado = 1;
+            }
+        }
+    } while (trocado);
+    
+}*/
+
+/*29) Crie um programa que contenha um array de float contendo 10 elementos. Imprima o endereço de
+cada posição desse array.
+
+int main(void)
+{
+
+    float v[10], *p = v;
+
+    printf("Endereco de memoria das posicoes da array:\n");
+
+    for (int i = 0; i < 10; i++)
+    {
+        printf("v[%d] = %d\n",i, p+i);
+    }
+
+
+}*/
+
+/*30) Crie um programa que contenha um array de inteiros contendo 5 elementos. Utilizando apenas
+aritmética de ponteiros, leia esse array do teclado e imprima o dobro de cada valor lido.
+
+int main(void)
+{
+    int v[5], *p = v;
+
+    for (int i = 0; i < 5; i++)
+    {
+        scanf("%d", p+i);
+
+        if (i == 4)
+        {
+            for(int j = 0; j < 5; j++)
+            {
+                printf("v[%d] = %d\n", j, (*(p+j))*2);
+            }
+        }
+    }
+
+}*/
+
+/*31) O que o programa abaixo imprime? O ++ incrementa o ptr, ou seja, ele vai para enderecos de memoria vizinhos sendo semelhante a fazer ptr += 1,
+Alem disso o ++ esta apos o ptr, assim ocorre um pos incremento, sendo dessa forma possivel expressar o vetor vet
+
+void main(void) 
+{
+    int vet[] = {4, 9, 12};
+    int i,*ptr;
+    ptr = vet;
+    for (i = 0; i < 3; i++) 
+    {
+        printf("%d ",*ptr++);
+    }
+}*/
