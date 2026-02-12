@@ -1078,3 +1078,27 @@ void main(void)
         printf("%d ",*ptr++);
     }
 }*/
+
+/*32) Qual o resultado do programa abaixo? O programa basicamente pega os primeiros 10 
+numeros impares organizados em um vetor e os inverte a ordem de saida deles comparado a entrada que foi dada
+para tal primeiro declara o vetor, depois dois ponteiros, no qual p1 recebe o end de v e p2 recebe o end
+contido em p1, que o caso e o end de v, depois no primeiro for prenche-se o v[] com os valores impares
+e o endereco contido em p2 eh incrementado em 1 em cada loop de execução ficando no final do for com um endereco
+maior em 1 do que o ultimo elemento do vetor, já no segundo for ele vai decrementar o endereco contido em p2, servindo como um mecanismo de 
+volta no vetor, dessa forma se caminha de tras para frente nos termos do vetor atraves de decremento do endereco de cada espaco de memoria pertencente ao vetor v  
+ 
+ 
+void main() {
+    int i, *p_1, *p_2, v[10];
+    p_1 = v;
+    p_2 = p_1;
+    for (i = 0; i < 10; i++) {
+        v[i] = (2*i)+1;
+        //v[i] = 1,3,5,7,9,11,13,15,17,19
+        p_2++;
+     } 
+    for (i = 0; i < 10; i++) { 
+        p_2--;
+        printf(" [%d] ", *p_2);
+    } 
+}*/
