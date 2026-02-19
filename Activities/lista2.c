@@ -1102,3 +1102,49 @@ void main() {
         printf(" [%d] ", *p_2);
     } 
 }*/
+
+/*Ex extra: Declare uma variável inteira, um ponteiro para inteiro e faça o ponteiro apontar para a variável.
+int main(void)
+{
+    int a = 10, *b;
+    b = &a;
+    
+    printf("Valor variavel: %d\nEndereco Variavel: %p\nValor apontado: %d\nEndereco contido no ponteiro: %p\n", a, &a, *b, b);
+}*/
+
+/*Ex extra: Crie uma função que receba um ponteiro para inteiro e dobre o valor da variável
+
+void dobrar(int *a);
+
+int main(void)
+{
+    int b = 7;
+    dobrar(&b);
+    printf("%d\n", b);
+}
+
+void dobrar(int *a)
+{
+    *a  *= 2;
+}*/
+
+/*Ex extra: Faça uma funcao que inverta os valores de duas variaveis
+
+void swap(int *a, int *b);
+
+int main(void)
+{
+    int a = 7, b = 10;
+    swap(&a, &b);
+    printf("Valor de a: %d\nValor de b: %d\n", a, b); 
+
+}
+
+void swap(int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}*/
+
+/**/
