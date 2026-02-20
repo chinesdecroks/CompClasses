@@ -1078,3 +1078,201 @@ void main(void)
         printf("%d ",*ptr++);
     }
 }*/
+
+/*Faca uma funcao quer receba n inteiro e calcule o somatorio de 1 ate n
+
+int soma(int n);
+
+int main(void)
+{
+    int n = 5,  a = soma(n);
+    printf("A soma de 1 ate %d eh %d\n", n, a);
+}
+
+int soma(int n)
+{
+    int a = 0;
+    for (int i = 0; i <= n; i++)
+    {
+        a += i;
+    }
+
+    return a;
+}*/
+
+/*Função que verifica se o numero eh par
+
+int ehPar(int n);
+
+int main(void)
+{
+    if (ehPar(8))
+        printf("Eh Par\n");
+    else 
+        printf("Eh impar\n");
+    
+}
+
+int ehPar(int n)
+{
+    if (n % 2 == 0)
+     return 1;
+    else 
+     return 0;
+}*/
+
+/*Crie uma funcao que inverte os numeros
+
+double inv(long a);
+
+int main(void)
+{
+    long a = 123456677;
+    double b = inv(a);
+    printf("%.0lf\n", b);
+}
+
+double inv(long a)
+{
+    long b = a, cont = -1;
+    double soma = 0;
+    while (a != 0)
+    {
+        a /= 10;
+        cont++;
+
+    }
+
+    for (int i = cont; i >= 0; i--)
+    {
+        soma += (b%10)*pow(10.0, i);
+        b /= 10;
+    }
+
+    return soma;
+
+}*/
+
+/*Criar uma funcao media de um vetor
+
+float media(int v[], int tamanho);
+
+int main(void)
+{
+    int a[5] = {1, 2, 3, 4, 5};
+    float b = media(a, 5);
+
+    printf("A media dos valores do vetor = %.2f\n", b);
+
+}
+
+float media(int *v, int tamanho)
+{
+    float sum = 0;
+
+    for (int i = 0; i < tamanho; i++)
+    {
+        sum += *(v+i);
+    }
+
+    return sum/tamanho;
+}*/
+
+/*Função para verificar número primo
+int ehPrimo(int n);
+
+int main(void)
+{
+    int a;
+    scanf("%d", &a);
+    if (ehPrimo(a))
+    {
+        printf("Eh primo\n");
+    } else 
+    {
+        printf("Nao eh primo");
+    }
+}
+
+int ehPrimo(int n)
+{
+    int cont = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            cont++;
+        }
+
+        if (cont > 3)
+        {
+            break;
+        }
+    }
+
+    if (cont == 2)
+        return 1;
+    else 
+        return 0;
+}*/
+
+/*Faça uma funcao que calcula o MDC(Maximo Divisor Comum)
+
+int mdc(int a, int b);
+
+int main(void)
+{
+
+    int b, a;
+    scanf("%d %d", &a, &b);
+    printf("O MDC de %d e %d = %d\n", a, b, mdc(a, b));
+
+}
+
+int mdc(int a, int b)
+{
+    int m, d;
+    if (a >= b)
+        m = a;
+    else 
+        m = b;
+
+    for (int i = 1; i <= m; i++)
+    {
+        if (a % i == 0 && b % i == 0)
+            d = i;
+        
+    }
+
+    return d;
+}*/
+
+/*Crie uma função que ordene dois numeros
+
+void ordenar(int *a, int *b);
+
+int main(void)
+{
+    int a = 1, b = 7;
+
+    printf("Desordenado: %d, %d\n", a, b);
+    ordenar(&a, &b);
+    printf("Ordenado: %d, %d\n", a, b);
+
+}
+
+void troca (int *a, int *b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void ordenar(int *a, int *b)
+{  
+    if (*a >= *b)
+        troca(a, b);
+
+}*/
+
+
