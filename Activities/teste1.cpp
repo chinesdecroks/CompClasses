@@ -68,10 +68,10 @@ int main(void)
 
         if (!strcmp(inverte, semespaco))
         {
-            printf("sim\n");
+            printf("Sim\n");
         } else
         {
-            printf("nao\n");
+            printf("Nao\n");
         }
         
 
