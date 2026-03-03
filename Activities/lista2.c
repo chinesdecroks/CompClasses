@@ -1262,10 +1262,75 @@ int main(void)
 }
 
 void troca (int *a, int *b)
+=======
+/*32) Qual o resultado do programa abaixo? O programa basicamente pega os primeiros 10 
+numeros impares organizados em um vetor e os inverte a ordem de saida deles comparado a entrada que foi dada
+para tal primeiro declara o vetor, depois dois ponteiros, no qual p1 recebe o end de v e p2 recebe o end
+contido em p1, que o caso e o end de v, depois no primeiro for prenche-se o v[] com os valores impares
+e o endereco contido em p2 eh incrementado em 1 em cada loop de execução ficando no final do for com um endereco
+maior em 1 do que o ultimo elemento do vetor, já no segundo for ele vai decrementar o endereco contido em p2, servindo como um mecanismo de 
+volta no vetor, dessa forma se caminha de tras para frente nos termos do vetor atraves de decremento do endereco de cada espaco de memoria pertencente ao vetor v  
+ 
+ 
+void main() {
+    int i, *p_1, *p_2, v[10];
+    p_1 = v;
+    p_2 = p_1;
+    for (i = 0; i < 10; i++) {
+        v[i] = (2*i)+1;
+        //v[i] = 1,3,5,7,9,11,13,15,17,19
+        p_2++;
+     } 
+    for (i = 0; i < 10; i++) { 
+        p_2--;
+        printf(" [%d] ", *p_2);
+    } 
+}*/
+
+/*Ex extra: Declare uma variável inteira, um ponteiro para inteiro e faça o ponteiro apontar para a variável.
+int main(void)
+{
+    int a = 10, *b;
+    b = &a;
+    
+    printf("Valor variavel: %d\nEndereco Variavel: %p\nValor apontado: %d\nEndereco contido no ponteiro: %p\n", a, &a, *b, b);
+}*/
+
+/*Ex extra: Crie uma função que receba um ponteiro para inteiro e dobre o valor da variável
+
+void dobrar(int *a);
+
+int main(void)
+{
+    int b = 7;
+    dobrar(&b);
+    printf("%d\n", b);
+}
+
+void dobrar(int *a)
+{
+    *a  *= 2;
+}*/
+
+/*Ex extra: Faça uma funcao que inverta os valores de duas variaveis
+
+void swap(int *a, int *b);
+
+int main(void)
+{
+    int a = 7, b = 10;
+    swap(&a, &b);
+    printf("Valor de a: %d\nValor de b: %d\n", a, b); 
+
+}
+
+void swap(int *a, int *b)
+>>>>>>> tab
 {
     int temp = *a;
     *a = *b;
     *b = temp;
+
 }
 
 void ordenar(int *a, int *b)
@@ -1276,3 +1341,145 @@ void ordenar(int *a, int *b)
 }*/
 
 
+
+/*Funcao para determinar o fatorial de um numero
+
+int fatorial(int a);
+
+int main(void)
+{
+    int a = fatorial(6);
+    printf("%d\n", a);
+}
+
+int fatorial(int a)
+{
+    if (a == 1 || a == 0)
+    {
+        return 1;
+    }
+
+    return a*fatorial(a-1);
+}*/
+
+/*Funcao potencia
+
+int pot(int base, int exp);
+
+int main(void)
+{
+    int res = pot(9, 2);
+    printf("%d\n", res);
+}
+
+int pot(int base, int exp)
+{
+    int res = 1;
+    for (int i = 0; i < exp; i++)
+    {
+        res *= base;
+    }
+
+    return res;
+}*/
+
+/*33) Faça um programa que leia do usuário o tamanho de um vetor a ser lido e faça a alocação dinâmica de 
+memória. Em seguida, leia do usuário seus valores e imprima o vetor lido.
+
+int main(void)
+{
+    int n;
+
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &n);
+
+    int *v = malloc(n*sizeof(int));
+    if (v == NULL)
+    {
+        printf("Erro na alocacao de memoria\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", (v+i));
+        if (i == n-1)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("v[%d] = %d\n", j, *(v+j));
+            }
+        }
+    }
+
+    free(v);
+
+}*/
+
+/*34) Crie um programa que implemente um array de tamanho dinâmico com calloc() para receber as notas 
+dos alunos de uma turma. Repasse esse array para uma função media, conforme protótipo abaixo, que 
+calcule o valor médio das notas e retorne esse valor para função principal. Imprima a nota final da 
+turma e a nota dos alunos.
+
+float media(float *lista, int tamanho);
+
+int main(void)
+{
+    int n;
+    float med;
+
+    printf("Digite a quantidade de alunos: ");
+    scanf("%d", &n);
+
+    float *v = calloc(n, sizeof(float));
+    if (v == NULL)
+    {
+        printf("Erro na alocacao de memoria\n");
+        exit(1);
+    }
+
+    for(int i = 0; i < n; i++)
+    {
+        scanf("%f", v+i);
+    }
+
+    med = media(v, n);
+
+    printf("A media da turma eh %.2f\n", med);
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("Aluno %d: %.2f\n", i+1, *(v+i));
+    }
+
+    free(v);
+}
+
+float media(float *lista, int tamanho)
+{
+    float m = 0;
+
+    for(int i = 0; i < tamanho; i++)
+    {
+        m += *(lista+i);
+    }
+
+    return m/tamanho;
+
+}*/
+
+/**/
+
+char *strcopy(char *str);
+
+int main(void)
+{
+    char c[] = "Hello  World\n";
+    char *s = strcopy(c);
+     printf("%s", s);
+}
+
+char *strcopy(char *str)
+{
+    return str;
+}

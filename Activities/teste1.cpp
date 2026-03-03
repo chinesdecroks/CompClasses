@@ -3,7 +3,7 @@
 #include <locale.h>
 #include <string.h>
 
-int main(void)
+/*int main(void)
 {
     setlocale(LC_ALL, "");
     wchar_t frase[510];
@@ -75,6 +75,23 @@ int main(void)
         }
         
 
+    }
+}*/
+
+int main(void)
+{
+    int v[] = {2,3,4}, *p1, *p2;
+    p1 = v;
+    //p2 = p1, p2 pega o endereco de memoria de p1, que o endereco do &v[0]
+    p2 = p1;
+    for (int i = 0; i < 3; i++)
+    {
+        *(p2+i) += 1;
+    } 
+
+    for(int i = 0; i < 3; i++)
+    {
+        printf("v[%d] = %d\n", i, v[i]);
     }
 }
 
