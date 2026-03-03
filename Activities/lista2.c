@@ -1147,4 +1147,144 @@ void swap(int *a, int *b)
     *b = temp;
 }*/
 
+/*Funcao para determinar o fatorial de um numero
+
+int fatorial(int a);
+
+int main(void)
+{
+    int a = fatorial(6);
+    printf("%d\n", a);
+}
+
+int fatorial(int a)
+{
+    if (a == 1 || a == 0)
+    {
+        return 1;
+    }
+
+    return a*fatorial(a-1);
+}*/
+
+/*Funcao potencia
+
+int pot(int base, int exp);
+
+int main(void)
+{
+    int res = pot(9, 2);
+    printf("%d\n", res);
+}
+
+int pot(int base, int exp)
+{
+    int res = 1;
+    for (int i = 0; i < exp; i++)
+    {
+        res *= base;
+    }
+
+    return res;
+}*/
+
+/*33) Faça um programa que leia do usuário o tamanho de um vetor a ser lido e faça a alocação dinâmica de 
+memória. Em seguida, leia do usuário seus valores e imprima o vetor lido.
+
+int main(void)
+{
+    int n;
+
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &n);
+
+    int *v = malloc(n*sizeof(int));
+    if (v == NULL)
+    {
+        printf("Erro na alocacao de memoria\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", (v+i));
+        if (i == n-1)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                printf("v[%d] = %d\n", j, *(v+j));
+            }
+        }
+    }
+
+    free(v);
+
+}*/
+
+/*34) Crie um programa que implemente um array de tamanho dinâmico com calloc() para receber as notas 
+dos alunos de uma turma. Repasse esse array para uma função media, conforme protótipo abaixo, que 
+calcule o valor médio das notas e retorne esse valor para função principal. Imprima a nota final da 
+turma e a nota dos alunos.
+
+float media(float *lista, int tamanho);
+
+int main(void)
+{
+    int n;
+    float med;
+
+    printf("Digite a quantidade de alunos: ");
+    scanf("%d", &n);
+
+    float *v = calloc(n, sizeof(float));
+    if (v == NULL)
+    {
+        printf("Erro na alocacao de memoria\n");
+        exit(1);
+    }
+
+    for(int i = 0; i < n; i++)
+    {
+        scanf("%f", v+i);
+    }
+
+    med = media(v, n);
+
+    printf("A media da turma eh %.2f\n", med);
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("Aluno %d: %.2f\n", i+1, *(v+i));
+    }
+
+    free(v);
+}
+
+float media(float *lista, int tamanho)
+{
+    float m = 0;
+
+    for(int i = 0; i < tamanho; i++)
+    {
+        m += *(lista+i);
+    }
+
+    return m/tamanho;
+
+}*/
+
 /**/
+
+char *strcopy(char *str);
+
+int main(void)
+{
+    char c[] = "Hello  World\n";
+    char *s = strcopy(c);
+     printf("%s", s);
+}
+
+char *strcopy(char *str)
+{
+    return str;
+}
