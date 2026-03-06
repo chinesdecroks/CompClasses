@@ -1262,7 +1262,7 @@ int main(void)
 }
 
 void troca (int *a, int *b)
-=======
+
 /*32) Qual o resultado do programa abaixo? O programa basicamente pega os primeiros 10 
 numeros impares organizados em um vetor e os inverte a ordem de saida deles comparado a entrada que foi dada
 para tal primeiro declara o vetor, depois dois ponteiros, no qual p1 recebe o end de v e p2 recebe o end
@@ -1325,7 +1325,7 @@ int main(void)
 }
 
 void swap(int *a, int *b)
->>>>>>> tab
+
 {
     int temp = *a;
     *a = *b;
@@ -1468,7 +1468,8 @@ float media(float *lista, int tamanho)
 
 }*/
 
-/**/
+/*35) Crie uma função que receba uma string como parâmetro (de tamanho desconhecido) e retorne uma
+cópia da mesma. A assinatura da função deve ser:
 
 char *strcopy(char *str);
 
@@ -1482,4 +1483,147 @@ int main(void)
 char *strcopy(char *str)
 {
     return str;
+}*/
+
+/*Escreva um programa que contenha duas variáveis inteiras. Compare seus endereços e exiba o maior endereço
+
+int main(void)
+{
+    int a, b;
+    if (&a > &b)
+    {
+        printf("O endereco de %d eh maior que o enderecon de %d\n", &a, &b);
+    } else 
+    {
+        printf("O endereco de %d eh maior que o enderecon de %d\n", &b, &a);
+    }
+}*/
+
+/*Implemente uma função que calcula a área da superfície e o voçume de uma esfera de raio R. Essa 
+função deve obedecer ao protótipo
+
+void esfera(float R, float *area, float *volume);
+
+int main(void)
+{
+    float r, a, v;
+    scanf("%f", &r);
+
+    esfera(r, &a, &v);
+    printf("A area da esfera eh %f\nO volume da esfera eh %f\n", a, v);
+
 }
+
+void esfera(float R, float *area, float *volume)
+{
+    double pi = 3.14159;
+    *area = 4 * pi * R * R;
+    *volume = 4/3.0 * pi * R * R * R;
+}*/
+
+/*Implemente uma função que receba como parâmetros um vetor de números reais (VET)
+de tamnho N retorne quantos números negativos há nesse vetor.Essa função deve obedecer ao protótipo:
+
+int negativo(float *vet, int N);
+
+int main(void)
+{
+    int n;
+    scanf("%d", &n);
+    float v[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%f", &v[i]);
+    }
+
+    printf("A quantidade de valores negativos nesse vetor eh %d\n", negativo(v, n));
+
+}
+
+int negativo(float *vet, int N)
+{
+    int cont = 0;
+    for (int i = 0; i < N; i++)
+    {
+        if (*(vet+i) < 0)
+        {
+            cont++;
+        }
+    }
+
+    return cont;
+}*/
+
+/*Crie um programa para armazenar uma agenda de contatos pessoais usando estrutura 
+funções para
+1)listar contatos,
+2)pesquisar por nome,
+3)pesquisar por telefone
+ Um contato deve ser composto por nome, endereço,
+telefone e e-mail. Use alocação dinâmica para o
+armazenamento do nome do contato. Para definir e
+armazenar a lista de contatos, use um vetor de estrutura,
+também alocado dinamicamente.*/
+
+typedef struct contato
+{
+    char *nome;
+    char endereco[50];
+    int telefone;
+    char email[50];
+} con;
+
+
+int main(void)
+{
+    int vlrm, i = 0, n = 1;
+    printf("Digite quantos contatos deseja adicinar: ");
+    scanf("%d", &vlrm);
+    char conf;
+    con *c = (con *) malloc(vlrm*sizeof(con));
+    while (1)
+    {
+        for (; i < vlrm; i++)
+        {
+            printf("Contato %d - nome: ", i+1);
+            c[i].nome = (char *) malloc(50*sizeof(char));
+            scanf("%[^\n]", c[i].nome);
+            
+            printf("Contato %d - endereco: ", i+1);
+            scanf("%[^\n]", c[i].endereco);
+
+            printf("Contato %d - telefone: ", i+1);
+            scanf("%d", &(c[i].telefone));
+
+            printf("Contato %d - email: ", i+1);
+            scanf("%[^\n]", c[i].email);
+        }
+
+        do
+        {
+            printf("Deseja adicionar mais contatos? (S/N)\n");
+            scanf("%c", &conf);
+            if (conf == 'S' || conf == 's')
+            {
+                vlrm++;
+                c = realloc(c, vlrm*sizeof(con));
+                n = 0;
+            }
+            else if (conf == 'N' || conf == 'n') 
+            {
+                n = 0;
+                break;
+            }
+            else 
+            {
+                printf("Opção invalida\nTente novamente\n");
+            }
+
+        } while (n);
+    }
+}
+
+
+
+
