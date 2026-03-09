@@ -1570,40 +1570,59 @@ typedef struct contato
 {
     char *nome;
     char endereco[50];
-    int telefone;
+    long telefone;
     char email[50];
 } con;
 
+void mensagem();
+void list(con *c, int q);
+void name_search(con *c, int q);
+void phone_search(con *c, int q);
+void action(con *c, int q);
 
 int main(void)
 {
-    int vlrm, i = 0, n = 1;
+    int vlrm, i = 0, n, m = 1;
+    char conf;
+
+    mensagem();
+
     printf("Digite quantos contatos deseja adicinar: ");
     scanf("%d", &vlrm);
-    char conf;
+    getchar();
+
     con *c = (con *) malloc(vlrm*sizeof(con));
-    while (1)
+    
+    while (m)
     {
+        n = 1;
+
         for (; i < vlrm; i++)
         {
             printf("Contato %d - nome: ", i+1);
             c[i].nome = (char *) malloc(50*sizeof(char));
             scanf("%[^\n]", c[i].nome);
+            getchar();
             
             printf("Contato %d - endereco: ", i+1);
             scanf("%[^\n]", c[i].endereco);
+            getchar();
 
             printf("Contato %d - telefone: ", i+1);
-            scanf("%d", &(c[i].telefone));
+            scanf("%ld", &(c[i].telefone));
+            getchar();
 
             printf("Contato %d - email: ", i+1);
             scanf("%[^\n]", c[i].email);
+            getchar();
         }
 
-        do
+        while(n)
         {
+        
             printf("Deseja adicionar mais contatos? (S/N)\n");
             scanf("%c", &conf);
+            getchar();
             if (conf == 'S' || conf == 's')
             {
                 vlrm++;
@@ -1613,15 +1632,205 @@ int main(void)
             else if (conf == 'N' || conf == 'n') 
             {
                 n = 0;
-                break;
+                m = 0;
             }
             else 
             {
                 printf("Opção invalida\nTente novamente\n");
             }
 
-        } while (n);
+        }
+
+        
     }
+
+    
+    action(c, vlrm);
+
+
+    for (int j = 0; j < vlrm; j++)
+            free(c[j].nome);
+
+    free(c);
+}
+
+void list(con *c, int q)
+{
+    for(int i = 0; i < q; i++)
+        printf("\nContato %d\n%s\n%s\n%ld\n%s\n\n", i+1, (c+i)->nome, (c+i)->endereco, (c+i)->telefone, (c+i)->email);
+    
+}
+
+void name_search(con *c, int q)
+{
+    char name[50], conf;
+    int m = 1, n = 1, b = 1;
+    
+
+    while (m)
+    {
+        b = 1;
+        n = 1;
+        printf("Digite o nome de um contato: ");
+        scanf("%[^\n]", name);
+        getchar();
+        for (int i = 0; i < q; i++)
+        {
+            if (!strcmp(name, c[i].nome))
+            {
+                printf("\nContato encontrado\n%s\n%s\n%ld\n%s\n\n", (c+i)->nome, (c+i)->endereco, (c+i)->telefone, (c+i)->email);
+                n = 0;
+            }
+        }
+
+        if (n)
+        {
+            printf("O seguinte contato não foi encontrado\n");
+        }
+
+        while (b)
+        {
+            printf("Deseja procurar outro contato pelo nome? (S/N): ");
+            scanf("%c", &conf);
+            getchar();
+            if (conf == 'S' || conf == 's')
+            {
+                b = 0;
+            }
+            else if (conf == 'N' || conf == 'n') 
+            {
+                b = 0;
+                m = 0;
+            }
+            else 
+            {
+                printf("Opção invalida\nTente novamente\n");
+            }
+
+        }
+    }
+
+}
+
+void phone_search(con *c, int q)
+{
+    int m = 1, n = 1, b = 1;
+    long p;
+    char conf;
+    
+
+    while (m)
+    {
+        b = 1;
+        n = 1;
+        printf("Digite o numero de um contato: ");
+        scanf("%ld", &p);
+        getchar();
+
+        for (int i = 0; i < q; i++)
+        {
+            if (p == (c+i)->telefone)
+            {
+                printf("\nContato encontrado\n%s\n%s\n%ld\n%s\n\n", (c+i)->nome, (c+i)->endereco, (c+i)->telefone, (c+i)->email);
+                n = 0;
+            }
+        }
+
+        if (n)
+        {
+            printf("O seguinte contato não foi encontrado\n");
+        }
+
+        while (b)
+        {
+            printf("Deseja procurar outro contato pelo numero? (S/N): ");
+            scanf("%c", &conf);
+            getchar();
+            if (conf == 'S' || conf == 's')
+            {
+                b = 0;
+            }
+            else if (conf == 'N' || conf == 'n') 
+            {
+                b = 0;
+                m = 0;
+            }
+            else 
+            {
+                printf("Opção invalida\nTente novamente\n");
+            }
+
+        }
+    } 
+
+    
+}
+
+void action(con *c, int q)
+{
+    int n, o, s;
+
+    while(1)
+    {
+        o = 1;
+        s = 1;
+
+        while (o)
+        {
+            printf("1 - Listar contatos.\n2 - Procurar pelo nome.\n3 - Procurar pelo telefone.\n4 - Sair.\n");
+            printf("Digite o número de uma das opções: ");
+            scanf("%d", &n);
+            getchar();
+
+            for (int i = 1; i <= 4; i++)
+            {
+                if (i == n)
+                {
+                    o = 0;
+                    s = 0;
+                } 
+            }
+
+            if (s)
+            {
+                 printf("Opcao invalida\nTente novamente\n");
+            }
+
+        }
+
+        
+        switch (n)
+        {
+        case 1:
+            list(c, q);
+            break;
+        case 2:
+            name_search(c, q);
+            break;
+        case 3:
+            phone_search(c, q);
+            break;
+        
+        default:
+            exit(1);
+            break;
+        }
+    }
+}
+
+void mensagem()
+{
+    printf(" __| |____________________________________________| |__   \n");
+    printf("(__   ____________________________________________   __)   \n");
+    printf("   | |                                            | |      \n");
+    printf("   | |                                            | |       \n");
+    printf("   | |                                            | |       \n");
+    printf("   | |        **Bem vindo á sua agenda**          | |        \n");
+    printf("   | |                                            | |         \n");
+    printf("   | |                                            | |          \n");
+    printf(" __| |____________________________________________| |__        \n");
+    printf("(__   ____________________________________________   __)        \n");
+    printf("   | |                                            | |           \n");
 }
 
 
