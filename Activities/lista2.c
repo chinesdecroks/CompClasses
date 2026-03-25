@@ -1825,7 +1825,7 @@ void mensagem()
     printf("   | |                                            | |      \n");
     printf("   | |                                            | |       \n");
     printf("   | |                                            | |       \n");
-    printf("   | |        **Bem vindo á sua agenda**          | |        \n");
+    printf("   | |   **Bem vindo á sua agenda de contatos**   | |        \n");
     printf("   | |                                            | |         \n");
     printf("   | |                                            | |          \n");
     printf(" __| |____________________________________________| |__        \n");
