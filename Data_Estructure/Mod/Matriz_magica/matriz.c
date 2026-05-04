@@ -72,6 +72,8 @@ int somaDiag_p(int** m, int tam)
         for(int j = 0; j < tam; j++)
             if (i==j)
                 s += m[i][j];
+
+    return s;
 }
 
 int somaDiag_s(int** m, int tam)
@@ -82,6 +84,8 @@ int somaDiag_s(int** m, int tam)
         for(int j = 0; j < tam; j++)
             if (i+j+1 == tam)
                 s += m[i][j];
+
+    return s;
     
 }
 
@@ -116,10 +120,8 @@ int soma_linha(int** m, int tam, int l)
 {
     int s = 0;
 
-    for(int i = 0; i < tam; i++)
-        for(int j = 0; j < tam; j++)
-            if (i == l)
-                s += m[i][j];
+    for(int j = 0; j < tam; j++)
+        s += m[l][j];
 
     return s;
 
@@ -131,14 +133,28 @@ int soma_coluna(int** m, int tam, int c)
     int s = 0;
 
     for(int i = 0; i < tam; i++)
-        for(int j = 0; j < tam; j++)
-            if (j == c)
-                s += m[i][j];
+        s += m[i][c];
+
+    return s;
 }
 
 int eh_matrizMagica(int** m, int tam)
 {
-    int num_mag = matriz_soma(m, tam) / tam;
+    int num_mag = soma_linha(m, tam, 0);
+
+    for (int i = 0; i < tam; i++)
+    {
+        if (soma_coluna(m, tam, i) != num_mag)
+            return 0;
+
+        if (soma_linha(m, tam, i) != num_mag)
+            return 0;
+    }
+
+    if (somaDiag_p(m, tam) != num_mag || somaDiag_s(m, tam) != num_mag)
+        return 0;
+    else
+        return 1;
     
 }
 

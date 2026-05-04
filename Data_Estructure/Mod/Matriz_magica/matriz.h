@@ -12,6 +12,7 @@ int somaDiag_s(int** m, int tam);
 int eh_simetrica(int** m, int** t, int tam);
 int soma_linha(int** m, int tam, int l);
 int soma_coluna(int** m, int tam, int c);
+int eh_matrizMagica(int** m, int tam);
 
 
 
