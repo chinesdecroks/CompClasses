@@ -9,6 +9,36 @@ Produtos* cria_lista(int tam)
     return p;
 }
 
+void criar_produto(Produtos* p, int tam)
+{
+    int a = 1, n;
+    char c; 
+
+    while (a)
+    {
+        printf("Deseja adicionar mais um produto na lista(S/N): ");
+        scanf("%c", &c);
+
+        if (c == 'S' || c == 's')
+        {
+            p = (Produtos*)realloc(p, (tam+n)*sizeof(Produtos));
+
+            for (int i = tam; i < tam+n; i++)
+            {
+                p[i] = insere_produto();
+            }
+
+        } else if (c == 'N' || c == 'n')
+        {
+            a = 0;
+        } else
+        {
+            printf("Opcao invalida!\nTente novamenta!\n");
+        }
+        
+    }
+}
+
 void libera_lista(Produtos* p)
 {
     free(p);
@@ -36,9 +66,32 @@ Produtos insere_produto()
 
 }
 
+void insere_lista(Produtos* p, int tam)
+{
+    for (int i = 0; i < tam; i++)
+    {
+        p[i] = insere_produto();
+        printf("\n");
+    }
+
+}
+
 void imprime_produto(Produtos p)
 {
     printf("Cod. : %03d\nNome: %s\nQuantidade no Estoque: %d\nValor: R$ %.2f\n", p.codProd, p.nomeProd, p.qtdeEstoque, p.valor);
+}
+
+void listar_produtos(Produtos* p, int tam)
+{
+    printf("----------- Lista de Produtos -----------\n");
+
+    for (int i = 0; i < tam; i++)
+    {
+        imprime_produto(p[i]);
+    }
+
+    printf("\n------------ Fim dos Produtos ------------\n");
+
 }
 
 int busca_barato(Produtos* p, int tam)

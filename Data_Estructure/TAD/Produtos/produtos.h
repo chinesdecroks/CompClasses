@@ -8,10 +8,12 @@ typedef struct produto{
   int qtdeEstoque;    //quantidade disponível em estoque
 } Produtos;
 
-Produtos* cria_lista(int tam);
+Produtos* cria_lista();
 void libera_lista(Produtos* p);
 Produtos insere_produto();
 void imprime_produto(Produtos p);
+void insere_lista(Produtos* p, int tam);
+void listar_produtos(Produtos* p, int tam);
 int busca_barato(Produtos* p, int tam);
 
 

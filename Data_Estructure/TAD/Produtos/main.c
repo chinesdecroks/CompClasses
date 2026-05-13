@@ -11,18 +11,8 @@ int main(void)
 
     Produtos* p = cria_lista(n);
 
-    for (int i = 0; i < n; i++)
-    {
-        p[i] = insere_produto();
-        printf("\n");
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        imprime_produto(p[i]);
-        printf("\n");
-    }
-
+    insere_lista(p, n);
+    listar_produtos(p, n);
 
     printf("O produto mais barato da lista eh:\n");
     imprime_produto(p[busca_barato(p, n)]);
