@@ -9,9 +9,9 @@ Produtos* cria_lista(int tam)
     return p;
 }
 
-void criar_produto(Produtos* p, int tam)
+Produtos* criar_produto(Produtos* p, int* tam)
 {
-    int a = 1, n;
+    int a = 1, n, temp = *tam;
     char c; 
 
     while (a)
@@ -21,12 +21,18 @@ void criar_produto(Produtos* p, int tam)
 
         if (c == 'S' || c == 's')
         {
-            p = (Produtos*)realloc(p, (tam+n)*sizeof(Produtos));
+            printf("Quantos produtos a mais deseja adicionar: ");
+            scanf("%d", &n);
 
-            for (int i = tam; i < tam+n; i++)
-            {
+            *tam = *tam + n;
+
+            p = (Produtos*)realloc(p, (*tam)*sizeof(Produtos));
+
+            for (int i = temp; i < *tam; i++)
                 p[i] = insere_produto();
-            }
+            
+
+            return p;
 
         } else if (c == 'N' || c == 'n')
         {
@@ -61,6 +67,7 @@ Produtos insere_produto()
 
     printf("Insira o valor do produto: ");
     scanf("%f", &p.valor);
+    getchar();
 
     return p;
 
@@ -71,7 +78,7 @@ void insere_lista(Produtos* p, int tam)
     for (int i = 0; i < tam; i++)
     {
         p[i] = insere_produto();
-        printf("\n");
+        printf("\n\n");
     }
 
 }
@@ -83,14 +90,14 @@ void imprime_produto(Produtos p)
 
 void listar_produtos(Produtos* p, int tam)
 {
-    printf("----------- Lista de Produtos -----------\n");
+    printf("\n----------- Lista de Produtos -----------\n");
 
     for (int i = 0; i < tam; i++)
     {
         imprime_produto(p[i]);
     }
 
-    printf("\n------------ Fim dos Produtos ------------\n");
+    printf("\n------------ Fim dos Produtos ------------\n\n");
 
 }
 

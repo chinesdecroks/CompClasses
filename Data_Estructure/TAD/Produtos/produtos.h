@@ -9,6 +9,7 @@ typedef struct produto{
 } Produtos;
 
 Produtos* cria_lista();
+Produtos* criar_produto(Produtos* p, int* tam);
 void libera_lista(Produtos* p);
 Produtos insere_produto();
 void imprime_produto(Produtos p);

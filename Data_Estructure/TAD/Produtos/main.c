@@ -14,6 +14,9 @@ int main(void)
     insere_lista(p, n);
     listar_produtos(p, n);
 
+    criar_produto(p, &n);
+    listar_produtos(p, n);
+
     printf("O produto mais barato da lista eh:\n");
     imprime_produto(p[busca_barato(p, n)]);
 
