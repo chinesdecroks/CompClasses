@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "produtos.h"
+
+void inicializa_lista(Lista* l)
+{
+    l->dados = NULL;
+    l->indice = 0;
+}
 
 Produtos* cria_lista(int tam)
 {
@@ -14,34 +21,40 @@ Produtos* criar_produto(Produtos* p, int* tam)
     int a = 1, n, temp = *tam;
     char c; 
 
-    while (a)
+    if (p)
     {
-        printf("Deseja adicionar mais um produto na lista(S/N): ");
-        scanf("%c", &c);
-
-        if (c == 'S' || c == 's')
+        while (a)
         {
-            printf("Quantos produtos a mais deseja adicionar: ");
-            scanf("%d", &n);
+            printf("Deseja adicionar mais um produto na lista(S/N): ");
+            scanf("%c", &c);
 
-            *tam = *tam + n;
+            if (c == 'S' || c == 's')
+            {
+                printf("Quantos produtos a mais deseja adicionar: ");
+                scanf("%d", &n);
 
-            p = (Produtos*)realloc(p, (*tam)*sizeof(Produtos));
+                *tam = *tam + n;
 
-            for (int i = temp; i < *tam; i++)
-                p[i] = insere_produto();
+                p = (Produtos*)realloc(p, (*tam)*sizeof(Produtos));
+
+                for (int i = temp; i < *tam; i++)
+                    p[i] = insere_produto();
+                
+
+                return p;
+
+            } else if (c == 'N' || c == 'n')
+            {
+                a = 0;
+            } else
+            {
+                printf("Opcao invalida!\nTente novamenta!\n");
+            }
             
-
-            return p;
-
-        } else if (c == 'N' || c == 'n')
-        {
-            a = 0;
-        } else
-        {
-            printf("Opcao invalida!\nTente novamenta!\n");
         }
-        
+    } else 
+    {
+        printf("Não eh possivel adicionar produto antes de criar lista\n");
     }
 }
 
@@ -78,7 +91,7 @@ void insere_lista(Produtos* p, int tam)
     for (int i = 0; i < tam; i++)
     {
         p[i] = insere_produto();
-        printf("\n\n");
+        
     }
 
 }
@@ -90,15 +103,21 @@ void imprime_produto(Produtos p)
 
 void listar_produtos(Produtos* p, int tam)
 {
+    if (p)
+    {
     printf("\n----------- Lista de Produtos -----------\n");
 
     for (int i = 0; i < tam; i++)
     {
         imprime_produto(p[i]);
+        printf("\n");
     }
 
     printf("\n------------ Fim dos Produtos ------------\n\n");
-
+    } else 
+    {
+        printf("\n\nLista vazia\n\n");
+    }
 }
 
 int busca_barato(Produtos* p, int tam)
@@ -128,3 +147,41 @@ int busca_barato(Produtos* p, int tam)
 
     return m;
 } 
+
+void venda(Lista* l)
+{
+    char nome[10];
+    int qntdd;
+
+    if (l->dados)
+    {
+        listar_produtos(l->dados, l->indice);
+
+        printf("Digite o nome do produto que deseja comprar: ");
+        scanf("%[^\n]", nome);
+
+        for (int i = 0; i < l -> indice; i++)
+        {
+            if (!strcmp(l->dados[i].nomeProd, nome))
+            {
+                printf("Digite quantos unidades do produto deseja levar: ");
+                scanf("%d", &qntdd);
+
+                if ((l->dados[i].qtdeEstoque - qntdd) >= 0)
+                {
+                    l->dados[i].qtdeEstoque -= qntdd;
+                    printf("Venda efetuada com sucesso!\n");
+
+                } else
+                {
+                    printf("Estoque insuficiente para a demanda!\n");
+                }
+
+                break;
+            }
+        }
+    } else
+    {
+        printf("Crie a lista para poder realizar a compra de produtos.\n");
+    }
+}
