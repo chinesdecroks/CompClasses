@@ -75,7 +75,7 @@ int main(void)
                     printf("\nSem no a remover\n");
                 break;
             case 3:
-
+                imprime_pessoa(topo->p);
                 break;
             default:
                 if(opcao != 0)
@@ -93,7 +93,7 @@ Pessoa ler_pessoa()
     Pessoa p;
 
     printf("\nDigite nome e data de nascimento dd mm aaaa:\n");
-    scanf("%49[^\n]%d%d%d", p.nome, p.data.dia, p.data.mes, p.data.ano);
+    scanf("%49[^\n]%d%d%d", p.nome, &p.data.dia, &p.data.mes, &p.data.ano);
     return p;
 }
 

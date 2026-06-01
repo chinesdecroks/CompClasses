@@ -32,5 +32,9 @@
 
         Análise Teórica
 
-    
+    A lista é constituida por cabeça e cauda 
+    Ex: [2,3,4,5,6,7]
+        2 : [3,4,5,6,7]
+            3 : [4,5,6,7]
+                4 : [5,6,7]
 */
