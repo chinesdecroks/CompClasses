@@ -179,3 +179,7 @@ temp/
 # *.tif
 # *.tiff
 # *.cog.tif
+
+
+# Repositório Git independente
+/Data_Estructure/EstDadDina/Quedas_d-agua_do_mundo/
