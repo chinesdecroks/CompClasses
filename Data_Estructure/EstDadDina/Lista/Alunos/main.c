@@ -10,7 +10,7 @@ int main(void)
 
     do
     {
-        printf("0 - Sair\n1 - Inserir aluno\n2 - Imprimir lista\n3 - Buscar Aluno\n4 - Excluir da Lista\n5 - Comprar produto\nEscolha: ");
+        printf("0 - Sair\n1 - Inserir aluno\n2 - Imprimir lista de alunos\n3 - Buscar Aluno\n4 - Excluir da Lista\n5 - Imprimir aprovados\nEscolha: ");
         scanf("%d", &opcao);
         getchar();
 
@@ -26,13 +26,16 @@ int main(void)
             imprime_lista(l);
             break;
         case 3:
-
+            busca_aluno(l);
             break;
         case 4:
-
+            if(excluir(&l))
+                printf("Remocao feita com sucesso!!\n");
+            else
+                printf("Remocao nao concluida!!\n");
             break;
         case 5:
-            
+            imprime_aprovados(l);
             break;
         default:
             if (opcao != 0)

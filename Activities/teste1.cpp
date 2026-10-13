@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include <wchar.h>
 #include <locale.h>
 #include <string.h>
@@ -77,7 +78,7 @@
 
     }
 }*/
-
+/*
 int main(void)
 {
     int v[] = {2,3,4}, *p1, *p2;
@@ -93,6 +94,42 @@ int main(void)
     {
         printf("v[%d] = %d\n", i, v[i]);
     }
+}*/
+
+bool isPalindrome(int x) {
+    if (x >= 0)
+    {
+        int result = 0, r = 0, c = x;
+
+        while (c != 0)
+        {
+            r = c % 10;
+            c /= 10;
+            result = result*10 + r;
+        }
+
+        printf("%d\n", result);
+
+        if (x == result)
+            return true;
+        else 
+            return false;
+
+    }
+    else
+    {
+        return false;
+    }
+}
+
+int main(void)
+{
+    if (isPalindrome(121))
+    {
+        printf("eh palindromo\n");
+    }
+    else
+        printf("N eh\n");
 }
 
 

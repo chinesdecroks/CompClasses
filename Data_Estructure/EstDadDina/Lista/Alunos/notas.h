@@ -9,6 +9,9 @@ Aluno scan_aluno ();
 int inserir (No** l);
 void mostra_aluno(Aluno l);
 void imprime_lista(No* lista);
+void busca_aluno(No* l);
+void imprime_aprovados(No* lista);
+int excluir(No** l);
 
 
 

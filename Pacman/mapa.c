@@ -88,7 +88,7 @@ void alocamapa(MAPA* m){
 
 
 void lemapa(MAPA* m){
-FILE* f;
+	FILE* f;
 	f = fopen("mapa.txt", "r");
 	if (f == 0){
 		printf("Erro na abertura do mapa\n");

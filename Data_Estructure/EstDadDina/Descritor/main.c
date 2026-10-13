@@ -10,7 +10,7 @@ int main(void)
 
     do
     {
-        printf("0 - Sair\n1 - Inserir no inicio\n2 - Inserir no fim\n3 - Excluir no inicio\n4 - Excluir do final\n5 - Imprimir lista\nEscolha: ");
+        printf("0 - Sair\n1 - Inserir no inicio\n2 - Inserir no fim\n3 - Excluir no inicio\n4 - Excluir do final\n5 - Excluir elemento\n6 - Imprimir lista\nEscolha: ");
         scanf("%d", &opcao);
         getchar();
 
@@ -28,18 +28,32 @@ int main(void)
              printf("Digite um numero: ");
              scanf("%d", &a);
              if (adicionarNoFinal(l, a))
-             printf("Insercao feita com sucesso\n");
+                printf("Insercao feita com sucesso\n");
              else
-             printf("Falha na insercao\n");
+                printf("Falha na insercao\n");
             break;
         case 3:
-
+            if (removerDoInicio(l))
+                printf("\nExclusao feita com sucesso\n");
+            else
+                printf("\nFalha na exclusao\n");
             break;
         case 4:
-
+            if (removerDoFinal(l))
+                printf("\nExclusao feita com sucesso\n");
+            else
+                printf("\nFalha na exclusao\n");
             break;
         case 5:
-        exibirLista(l);
+            printf("Digite um numero que sera excluido da lista: ");
+            scanf("%d", &a);
+             if (removerElemento(l, a))
+                printf("Exclusao feita com sucesso\n");
+             else
+                printf("Falha na exclusao\n");
+            break;
+        case 6:
+            exibirLista(l);
             break;
         default:
             if (opcao != 0)

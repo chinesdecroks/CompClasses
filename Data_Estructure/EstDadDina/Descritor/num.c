@@ -51,6 +51,7 @@ int adicionarNoInicio(Descritor *lista, int valor)
 int adicionarNoFinal(Descritor *lista, int valor)
 {
     No* novo = (No*)malloc(sizeof(No));
+    No* aux = lista->fim;
 
     if (novo == NULL)
         return 0;
@@ -65,6 +66,7 @@ int adicionarNoFinal(Descritor *lista, int valor)
     } else
     {
         novo->prox = lista->fim->prox;
+        lista->fim->prox = novo;
         lista->fim = novo;
     }
 
@@ -75,13 +77,13 @@ int adicionarNoFinal(Descritor *lista, int valor)
 
 }
 
-void removerDoInicio(Descritor *lista)
+int removerDoInicio(Descritor *lista)
 {
     No* aux;
 
     if (lista->tam > 0)
     {
-        if (lista->tam = 1)
+        if (lista->tam == 1)
         {
             aux = lista->inicio;
             lista->inicio = NULL;
@@ -95,14 +97,17 @@ void removerDoInicio(Descritor *lista)
         }
 
         lista->tam--;
+
+        return 1;
+
     } else
     {
-        printf("\nA lista esta vazia\n");
+        return 0;
     }
 
 }
 
-void removerDoFinal(Descritor *lista)
+int removerDoFinal(Descritor *lista)
 {
     No *atual = lista->inicio, *ant = NULL;
 
@@ -128,12 +133,57 @@ void removerDoFinal(Descritor *lista)
         }
 
         lista->tam--;
+
+        return 1;
     } else
     {
-        printf("\nA lista esta vazia\n");
+        return 0;
     }
 }
-//void removerElemento(Descritor *lista, int elemento);
+
+int removerElemento(Descritor *lista, int elemento)
+{
+    No* aux = lista->inicio, *ant = NULL;
+    int achou = 1;
+
+    if (lista->tam > 0)
+    {
+        while (aux->prox != NULL && aux->n != elemento)
+        {
+            ant = aux;
+            aux = aux->prox;
+            
+
+            if (aux->prox == NULL && aux->n != elemento)
+                achou = 0;
+        }
+
+        if (achou)
+        {
+            if (ant == NULL)
+            {
+                removerDoInicio(lista);
+
+            } else if (ant->prox == NULL)
+            {
+                removerDoFinal(lista);
+
+            } else
+            {
+                ant->prox = aux->prox;
+                free(aux);
+            }
+            
+            lista->tam--;
+            return 1;
+
+        } 
+        else 
+            return 0;
+    }
+    else 
+        return 0;
+}
 
 void exibirLista(Descritor *lista)
 {
