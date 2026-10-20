@@ -1,22 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "ordena.h"
 
 int trocas = -1;
-
-int paticinate(int* v, int i, int f);
-void troca(int* a, int* b);
-void quickSort(int* v, int i, int f);
-int show(int* v, int l);
-
-
-int main(void)
-{
-    int t = 6;
-    int v[] = {34, 7, 23, 32, 5, 62};
-    show(v, t);
-    quickSort(v, 0, t-1);
-    show(v, t);
-}
 
 void troca(int* a, int* b)
 {
