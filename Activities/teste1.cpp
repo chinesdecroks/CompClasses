@@ -96,7 +96,7 @@ int main(void)
     }
 }*/
 
-bool isPalindrome(int x) {
+/*bool isPalindrome(int x) {
     if (x >= 0)
     {
         int result = 0, r = 0, c = x;
@@ -130,7 +130,22 @@ int main(void)
     }
     else
         printf("N eh\n");
+}*/
+
+
+int fat(int n)
+{
+    if (n < 0)
+        return -1;
+    else if (n == 0 || n == 1)
+        return 1;
+    else  
+        return n*fat(n-1);
 }
 
 
 
+int main(void)
+{
+    printf("%d\n", fat(6));
+}
